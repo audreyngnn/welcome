@@ -7,50 +7,284 @@ from pathlib import Path
 st.set_page_config(
     page_title='Audrey - Data Analytics Portfolio',
     page_icon='📊',
-    layout='wide'
+    layout='wide',
+    initial_sidebar_state='expanded'
 )
 
 # -----------------------------------------------------------------------------
-# Custom CSS for better styling
+# Custom CSS for dark theme with "chill coding vibe" color palette
 st.markdown("""
     <style>
+    /* Import Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    
+    /* Root variables - Chill Coding Vibe Palette */
+    :root {
+        --primary-blue: #4c748c;
+        --accent-teal: #8ce4e4;
+        --light-mint: #cdefe3;
+        --dark-bg: #1a1d29;
+        --card-bg: #242735;
+        --text-primary: #e8eaed;
+        --text-secondary: #9aa0a6;
+    }
+    
+    /* Main app background */
+    .stApp {
+        background-color: var(--dark-bg);
+        font-family: 'Inter', sans-serif;
+    }
+    
+    /* Sidebar styling */
+    [data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #242735 0%, #1a1d29 100%);
+        border-right: 1px solid rgba(140, 228, 228, 0.1);
+    }
+    
+    [data-testid="stSidebar"] .stMarkdown {
+        color: var(--text-primary);
+    }
+    
+    /* Navigation buttons styling */
+    .nav-container {
+        padding: 0.5rem 0;
+    }
+    
+    .nav-button {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        margin: 0.35rem 0;
+        background-color: transparent;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: var(--text-secondary);
+        font-size: 1rem;
+        font-weight: 500;
+        width: 100%;
+        text-align: left;
+    }
+    
+    .nav-button:hover {
+        background-color: rgba(140, 228, 228, 0.1);
+        color: var(--accent-teal);
+        transform: translateX(5px);
+    }
+    
+    .nav-button.active {
+        background: linear-gradient(90deg, rgba(76, 116, 140, 0.3) 0%, rgba(140, 228, 228, 0.15) 100%);
+        border-left: 3px solid var(--accent-teal);
+        color: var(--accent-teal);
+        font-weight: 600;
+    }
+    
+    .nav-emoji {
+        font-size: 1.3rem;
+        margin-right: 0.75rem;
+        min-width: 1.5rem;
+    }
+    
+    /* Headers */
     .main-header {
         font-size: 3rem;
-        font-weight: bold;
+        font-weight: 700;
         margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, var(--accent-teal) 0%, var(--primary-blue) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
+    
     .subtitle {
         font-size: 1.2rem;
-        color: #666;
+        color: var(--text-secondary);
         margin-bottom: 2rem;
     }
+    
     .section-header {
         margin-top: 2rem;
         margin-bottom: 1rem;
+        color: var(--text-primary);
     }
+    
+    /* All text elements */
+    h1, h2, h3, h4, h5, h6, p, li, span, div {
+        color: var(--text-primary) !important;
+    }
+    
+    /* Dashboard container */
     .dashboard-container {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 1rem;
-        margin-bottom: 1rem;
-        background-color: #f9f9f9;
-    }
-    .article-card {
-        border-left: 4px solid #1f77b4;
-        padding-left: 1rem;
+        border: 1px solid rgba(140, 228, 228, 0.2);
+        border-radius: 16px;
+        padding: 1.5rem;
         margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, rgba(36, 39, 53, 0.8) 0%, rgba(26, 29, 41, 0.8) 100%);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(140, 228, 228, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .dashboard-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 48px rgba(140, 228, 228, 0.2);
+        border-color: var(--accent-teal);
+    }
+    
+    /* Article card */
+    .article-card {
+        border-left: 4px solid var(--accent-teal);
+        padding: 1.5rem;
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+        background-color: var(--card-bg);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .article-card:hover {
+        background-color: rgba(36, 39, 53, 0.9);
+        border-left-color: var(--light-mint);
+        transform: translateX(8px);
+    }
+    
+    /* Info boxes */
+    .stAlert {
+        background-color: var(--card-bg) !important;
+        border: 1px solid rgba(140, 228, 228, 0.3) !important;
+        color: var(--text-primary) !important;
+        border-radius: 12px !important;
+    }
+    
+    /* Links */
+    a {
+        color: var(--accent-teal) !important;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    a:hover {
+        color: var(--light-mint) !important;
+        text-decoration: underline;
+    }
+    
+    /* Buttons */
+    .stButton > button {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 0.5rem 1.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(140, 228, 228, 0.3);
+    }
+    
+    /* Input fields */
+    .stTextInput > div > div > input {
+        background-color: var(--card-bg);
+        color: var(--text-primary);
+        border: 1px solid rgba(140, 228, 228, 0.3);
+        border-radius: 8px;
+    }
+    
+    .stTextInput > div > div > input:focus {
+        border-color: var(--accent-teal);
+        box-shadow: 0 0 0 2px rgba(140, 228, 228, 0.2);
+    }
+    
+    /* Expander */
+    .streamlit-expanderHeader {
+        background-color: var(--card-bg);
+        border-radius: 8px;
+        color: var(--text-primary) !important;
+    }
+    
+    .streamlit-expanderContent {
+        background-color: rgba(36, 39, 53, 0.5);
+        border-color: rgba(140, 228, 228, 0.2);
+    }
+    
+    /* Divider */
+    hr {
+        border-color: rgba(140, 228, 228, 0.2) !important;
+        margin: 2rem 0;
+    }
+    
+    /* Caption text */
+    .caption {
+        color: var(--text-secondary) !important;
+        font-size: 0.875rem;
+    }
+    
+    /* Feature cards on home page */
+    .feature-card {
+        background: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid rgba(140, 228, 228, 0.2);
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+    
+    .feature-card:hover {
+        border-color: var(--accent-teal);
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(140, 228, 228, 0.15);
+    }
+    
+    /* Radio buttons in sidebar */
+    .stRadio > div {
+        background-color: transparent;
+    }
+    
+    .stRadio label {
+        color: var(--text-primary) !important;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+    }
+    
+    /* Columns */
+    [data-testid="column"] {
+        background-color: transparent;
     }
     </style>
 """, unsafe_allow_html=True)
 
 # -----------------------------------------------------------------------------
-# Sidebar Navigation
+# Sidebar Navigation with emoji icons
 
-st.sidebar.title("Navigation")
-page = st.sidebar.radio(
+st.sidebar.markdown("<h2 style='color: #8ce4e4; margin-bottom: 1.5rem;'>Navigation</h2>", unsafe_allow_html=True)
+
+# Custom navigation with emoji icons
+nav_options = {
+    "👋 Welcome": "Home",
+    "🎯 Problem Statement": "Power BI Dashboards",
+    "📊 Dashboard": "Tableau Dashboards",
+    "✨ Credits": "Articles & Writing",
+    "👩‍💻 About Me": "About Me"
+}
+
+# Create session state for active page if it doesn't exist
+if 'active_page' not in st.session_state:
+    st.session_state.active_page = "Home"
+
+# Custom radio buttons with emoji
+page_display = st.sidebar.radio(
     "Go to",
-    ["Home", "Power BI Dashboards", "Tableau Dashboards", "Articles & Writing", "About Me"]
+    list(nav_options.keys()),
+    index=list(nav_options.values()).index(st.session_state.active_page),
+    label_visibility="collapsed"
 )
+
+# Map display name to internal page name
+page = nav_options[page_display]
+st.session_state.active_page = page
 
 # -----------------------------------------------------------------------------
 # Home Page
@@ -101,19 +335,45 @@ if page == "Home":
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.subheader("⚡ Powering Tomorrow")
-        st.write("Interactive Power BI dashboard tracking global progress on UN SDG 7 (Affordable and Clean Energy) from 2000-2022")
-        st.caption("Power BI • Microsoft Fabric • UN SDG")
+        st.markdown("""
+        <div class="feature-card">
+            <h3>⚡ Powering Tomorrow</h3>
+            <p>Interactive Power BI dashboard tracking global progress on UN SDG 7 (Affordable and Clean Energy) from 2000-2022</p>
+            <p class="caption">Power BI • Microsoft Fabric • UN SDG</p>
+        </div>
+        """, unsafe_allow_html=True)
     
     with col2:
-        st.subheader("🎓 University Student Retention")
-        st.write("Comprehensive analytics dashboard analyzing student progression, retention, and transfer patterns for Macquarie University")
-        st.caption("Power BI • DAX • Educational Analytics")
+        st.markdown("""
+        <div class="feature-card">
+            <h3>🎓 University Student Retention</h3>
+            <p>Comprehensive analytics dashboard analyzing student progression, retention, and transfer patterns for Macquarie University</p>
+            <p class="caption">Power BI • DAX • Educational Analytics</p>
+        </div>
+        """, unsafe_allow_html=True)
     
     with col3:
-        st.subheader("🌾 DragonWagon")
-        st.write("Mobile app connecting Vietnamese farmers with local buyers, promoting responsible supply chains (Top 5 Finalist - Engage in Asia)")
-        st.caption("SDG 1 & 12 • Sustainability • Social Impact")
+        st.markdown("""
+        <div class="feature-card">
+            <h3>🚴 BBE Bike Sales</h3>
+            <p>Sales analytics dashboard tracking bike sales performance, revenue metrics, and customer insights with interactive visualizations</p>
+            <p class="caption">Power BI • DAX • Sales Analytics</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.write("")
+    
+    # Second row of featured projects
+    col4, col5, col6 = st.columns(3)
+    
+    with col4:
+        st.markdown("""
+        <div class="feature-card">
+            <h3>🌾 DragonWagon</h3>
+            <p>Mobile app connecting Vietnamese farmers with local buyers, promoting responsible supply chains (Top 5 Finalist - Engage in Asia)</p>
+            <p class="caption">SDG 1 & 12 • Sustainability • Social Impact</p>
+        </div>
+        """, unsafe_allow_html=True)
 
 # -----------------------------------------------------------------------------
 # Power BI Dashboards Page
@@ -148,16 +408,13 @@ elif page == "Power BI Dashboards":
     
     # Embed Power BI dashboard
     st.markdown("**Dashboard Preview:**")
-    powerbi_embed_url = st.text_input(
-        "Enter your Power BI embed URL (from Publish to web):",
-        key="sdg7_dashboard",
-        help="Go to your Power BI report > File > Embed report > Publish to web"
-    )
     
-    if powerbi_embed_url:
-        st.components.v1.iframe(powerbi_embed_url, height=600, scrolling=True)
-    else:
-        st.info("👆 Paste your Power BI embed URL above to display the dashboard")
+    # Embedded UN SDG7 Dashboard
+    st.components.v1.html("""
+        <iframe title="UN SDG7" width="100%" height="600" 
+        src="https://app.powerbi.com/view?r=eyJrIjoiNzQ1OGYxMDYtY2Y5ZS00ZDg0LTg5MTQtMjgyNGEzZTZhNjcxIiwidCI6IjgyYzUxNGMxLWE3MTctNDA4Ny1iZTA2LWQ0MGQyMDcwYWQ1MiJ9" 
+        frameborder="0" allowFullScreen="true"></iframe>
+    """, height=620)
     
     st.markdown('</div>', unsafe_allow_html=True)
     
@@ -182,16 +439,38 @@ elif page == "Power BI Dashboards":
     **Tools & Techniques:** Power BI, Advanced DAX, Complex Data Modeling, Educational Analytics
     """)
     
-    powerbi_embed_url_2 = st.text_input(
-        "Enter your Power BI embed URL:",
-        key="retention_dashboard",
-        help="Go to your Power BI report > File > Embed report > Publish to web"
-    )
+    powerbi_embed_url_2 = st.components.v1.html("""
+        <iframe title="Student Retention Dashboard" width="100%" height="600" 
+        src="https://app.powerbi.com/view?r=eyJrIjoiNGZhMjg0ODUtNjIyZC00OWRiLWFjNzctY2VkMzM2Y2EwZGMzIiwidCI6IjgyYzUxNGMxLWE3MTctNDA4Ny1iZTA2LWQ0MGQyMDcwYWQ1MiJ9" 
+        frameborder="0" allowFullScreen="true"></iframe>
+    """, height=620)
     
-    if powerbi_embed_url_2:
-        st.components.v1.iframe(powerbi_embed_url_2, height=600, scrolling=True)
-    else:
-        st.info("👆 Paste your Power BI embed URL above to display the dashboard")
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    st.write("")
+    
+    # Dashboard 3: Bike Sales Dashboard
+    st.markdown('<div class="dashboard-container">', unsafe_allow_html=True)
+    st.subheader("BBE Bike Sales Dashboard")
+    st.write("""
+    **Project Overview:** Interactive sales analytics dashboard tracking bike sales performance, 
+    revenue metrics, and customer insights.
+    
+    **Key Features:**
+    - Sales performance tracking by product category
+    - Revenue and profit analysis
+    - Customer segmentation and behavior analysis
+    - Time-series sales trends
+    - Geographic sales distribution
+    
+    **Tools & Techniques:** Power BI, DAX, Sales Analytics, Business Intelligence
+    """)
+    
+    st.components.v1.html("""
+        <iframe title="BBE_Sales_Dashboard" width="100%" height="600" 
+        src="https://app.powerbi.com/view?r=eyJrIjoiM2I4MjE4MjEtOTc3MC00ZmU3LWJmYjctYjczZTc5YjdkMTc3IiwidCI6IjgyYzUxNGMxLWE3MTctNDA4Ny1iZTA2LWQ0MGQyMDcwYWQ1MiJ9" 
+        frameborder="0" allowFullScreen="true"></iframe>
+    """, height=620)
     
     st.markdown('</div>', unsafe_allow_html=True)
     
@@ -440,5 +719,8 @@ elif page == "About Me":
 # Footer
 
 st.write("---")
-st.caption("© 2025 Audrey Nguyen - Data Analytics Portfolio | Built with Streamlit")
-
+st.markdown("""
+<p style='text-align: center; color: #9aa0a6; font-size: 0.875rem;'>
+    © 2025 Audrey Nguyen - Data Analytics Portfolio | Built with Streamlit
+</p>
+""", unsafe_allow_html=True)
