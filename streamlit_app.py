@@ -371,7 +371,7 @@ def collect_all_tech():
 with st.sidebar:
     # Profile photo
     try:
-        st.image("profile_photo.jpg", width=150)
+        st.image("profile_photo.jpg", width=185)
     except:
         st.markdown(f"""
             <div style="width: 150px; height: 150px; border-radius: 50%; 
@@ -418,7 +418,7 @@ with st.sidebar:
     
     # Download resume button
     try:
-        with open("CV_AudreyNguyen_2025Nov15.pdf", "rb") as pdf_file:
+        with open("CV_AudreyNguyen.pdf", "rb") as pdf_file:
             st.download_button(
                 label="Download resume",
                 data=pdf_file,
