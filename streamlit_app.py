@@ -201,6 +201,36 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
     
+    /* Sidebar - Black Background */
+    [data-testid="stSidebar"] {
+        background-color: #000000 !important;
+    }
+    
+    [data-testid="stSidebar"] > div:first-child {
+        background-color: #000000 !important;
+    }
+    
+    /* Sidebar text colors for contrast on black */
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] div,
+    [data-testid="stSidebar"] label {
+        color: var(--text-primary) !important;
+    }
+    
+    /* Sidebar links */
+    [data-testid="stSidebar"] a {
+        color: var(--accent-teal) !important;
+    }
+    
+    /* Sidebar caption/small text */
+    [data-testid="stSidebar"] .caption {
+        color: var(--text-secondary) !important;
+    }
+    
     h1, h2, h3, h4, h5, h6, p, li, span, div, label {
         color: var(--text-primary) !important;
     }
