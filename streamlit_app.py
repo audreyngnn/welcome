@@ -6,7 +6,7 @@ from pathlib import Path
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
     page_title='Audrey - Data Analytics Portfolio',
-    page_icon='📊',
+    page_icon='❄︎',
     layout='wide',
     initial_sidebar_state='expanded'
 )
@@ -238,6 +238,44 @@ st.markdown("""
         box-shadow: 0 12px 24px rgba(140, 228, 228, 0.15);
     }
     
+    /* Profile photo styling */
+    .profile-photo {
+        border-radius: 50%;
+        border: 4px solid var(--accent-teal);
+        box-shadow: 0 8px 32px rgba(140, 228, 228, 0.3);
+        transition: transform 0.3s ease;
+    }
+    
+    .profile-photo:hover {
+        transform: scale(1.05);
+    }
+    
+    /* Project cover images */
+    .project-cover {
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project-cover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(140, 228, 228, 0.2);
+    }
+    
+    /* Image placeholder gradients */
+    .image-placeholder {
+        width: 100%;
+        height: 200px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+    
     /* Radio buttons in sidebar */
     .stRadio > div {
         background-color: transparent;
@@ -264,10 +302,10 @@ st.sidebar.markdown("<h2 style='color: #8ce4e4; margin-bottom: 1.5rem;'>Navigati
 # Custom navigation with emoji icons
 nav_options = {
     "👋 Welcome": "Home",
-    "🎯 Problem Statement": "Power BI Dashboards",
-    "📊 Dashboard": "Tableau Dashboards",
-    "✨ Credits": "Articles & Writing",
-    "👩‍💻 About Me": "About Me"
+    "👩‍💻 About Me": "About Me",
+    "🪼 Power BI Dashboards": "Power BI Dashboards",
+    "🪷 Tableau Dashboards": "Tableau Dashboards",
+    "✨ Articles & Writing": "Articles & Writing"
 }
 
 # Create session state for active page if it doesn't exist
@@ -290,8 +328,27 @@ st.session_state.active_page = page
 # Home Page
 
 if page == "Home":
-    st.markdown('<p class="main-header">Audrey Nguyen</p>', unsafe_allow_html=True)
-    st.markdown('<p class="subtitle">Master of Business Analytics | Data Analyst | ESG & Sustainability Analytics</p>', unsafe_allow_html=True)
+    # Header Section with Profile Photo
+    col_photo, col_header = st.columns([1, 3])
+    
+    with col_photo:
+        # Profile photo - replace with your actual photo path
+        # For now, using a placeholder
+        try:
+            st.image("profile_photo.jpg", width=200)
+        except:
+            st.markdown("""
+                <div style="width: 200px; height: 200px; border-radius: 50%; 
+                background: linear-gradient(135deg, #4c748c 0%, #8ce4e4 100%); 
+                display: flex; align-items: center; justify-content: center; 
+                font-size: 4rem; color: white;">
+                    AN
+                </div>
+            """, unsafe_allow_html=True)
+    
+    with col_header:
+        st.markdown('<p class="main-header">Audrey Nguyen</p>', unsafe_allow_html=True)
+        st.markdown('<p class="subtitle">Master of Business Analytics | Data Analyst | ESG & Sustainability Analytics</p>', unsafe_allow_html=True)
     
     st.write("---")
     
@@ -329,12 +386,26 @@ if page == "Home":
     
     st.write("---")
     
-    # Featured Projects
+    # Featured Projects with Cover Images
     st.header("Featured Projects")
     
+    # Project 1: Powering Tomorrow
     col1, col2, col3 = st.columns(3)
     
     with col1:
+        # Cover image for SDG 7 project
+        try:
+            st.image("images/sdg7_cover.jpg", use_container_width=True)
+        except:
+            st.markdown("""
+                <div style="width: 100%; height: 200px; border-radius: 12px; 
+                background: linear-gradient(135deg, #4c748c 0%, #8ce4e4 100%); 
+                display: flex; align-items: center; justify-content: center; 
+                font-size: 3rem; margin-bottom: 1rem;">
+                    ⚡
+                </div>
+            """, unsafe_allow_html=True)
+        
         st.markdown("""
         <div class="feature-card">
             <h3>⚡ Powering Tomorrow</h3>
@@ -344,6 +415,19 @@ if page == "Home":
         """, unsafe_allow_html=True)
     
     with col2:
+        # Cover image for Student Retention project
+        try:
+            st.image("images/retention_cover.jpg", use_container_width=True)
+        except:
+            st.markdown("""
+                <div style="width: 100%; height: 200px; border-radius: 12px; 
+                background: linear-gradient(135deg, #8ce4e4 0%, #cdefe3 100%); 
+                display: flex; align-items: center; justify-content: center; 
+                font-size: 3rem; margin-bottom: 1rem;">
+                    🎓
+                </div>
+            """, unsafe_allow_html=True)
+        
         st.markdown("""
         <div class="feature-card">
             <h3>🎓 University Student Retention</h3>
@@ -353,6 +437,19 @@ if page == "Home":
         """, unsafe_allow_html=True)
     
     with col3:
+        # Cover image for Bike Sales project
+        try:
+            st.image("images/bike_sales_cover.jpg", use_container_width=True)
+        except:
+            st.markdown("""
+                <div style="width: 100%; height: 200px; border-radius: 12px; 
+                background: linear-gradient(135deg, #4c748c 0%, #8ce4e4 100%); 
+                display: flex; align-items: center; justify-content: center; 
+                font-size: 3rem; margin-bottom: 1rem;">
+                    🚴
+                </div>
+            """, unsafe_allow_html=True)
+        
         st.markdown("""
         <div class="feature-card">
             <h3>🚴 BBE Bike Sales</h3>
@@ -367,6 +464,19 @@ if page == "Home":
     col4, col5, col6 = st.columns(3)
     
     with col4:
+        # Cover image for DragonWagon project
+        try:
+            st.image("images/dragonwagon_cover.jpg", use_container_width=True)
+        except:
+            st.markdown("""
+                <div style="width: 100%; height: 200px; border-radius: 12px; 
+                background: linear-gradient(135deg, #cdefe3 0%, #4c748c 100%); 
+                display: flex; align-items: center; justify-content: center; 
+                font-size: 3rem; margin-bottom: 1rem;">
+                    🌾
+                </div>
+            """, unsafe_allow_html=True)
+        
         st.markdown("""
         <div class="feature-card">
             <h3>🌾 DragonWagon</h3>
