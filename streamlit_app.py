@@ -192,6 +192,7 @@ st.markdown("""
         --light-mint: #cdefe3;
         --dark-bg: #1a1d29;
         --card-bg: #242735;
+        --sidebar-bg: #0e1117;
         --text-primary: #e8eaed;
         --text-secondary: #9aa0a6;
     }
@@ -201,16 +202,16 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
     
-    /* Sidebar - Black Background */
+    /* Sidebar - Dark Navy/Charcoal Background */
     [data-testid="stSidebar"] {
-        background-color: #000000 !important;
+        background-color: var(--sidebar-bg) !important;
     }
     
     [data-testid="stSidebar"] > div:first-child {
-        background-color: #000000 !important;
+        background-color: var(--sidebar-bg) !important;
     }
     
-    /* Sidebar text colors for contrast on black */
+    /* Sidebar text colors */
     [data-testid="stSidebar"] h1,
     [data-testid="stSidebar"] h2,
     [data-testid="stSidebar"] h3,
@@ -226,9 +227,18 @@ st.markdown("""
         color: var(--accent-teal) !important;
     }
     
+    [data-testid="stSidebar"] a:hover {
+        color: var(--light-mint) !important;
+    }
+    
     /* Sidebar caption/small text */
     [data-testid="stSidebar"] .caption {
         color: var(--text-secondary) !important;
+    }
+    
+    /* Sidebar multiselect */
+    [data-testid="stSidebar"] .stMultiSelect {
+        background-color: rgba(255, 255, 255, 0.05);
     }
     
     h1, h2, h3, h4, h5, h6, p, li, span, div, label {
