@@ -241,6 +241,31 @@ st.markdown("""
         background-color: rgba(255, 255, 255, 0.05);
     }
     
+    /* Sidebar selectbox (dropdown) */
+    [data-testid="stSidebar"] .stSelectbox > div > div {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: var(--text-primary);
+    }
+    
+    /* Download button styling */
+    [data-testid="stSidebar"] .stDownloadButton > button {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--text-primary);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    [data-testid="stSidebar"] .stDownloadButton > button:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-color: var(--accent-teal);
+    }
+    
     h1, h2, h3, h4, h5, h6, p, li, span, div, label {
         color: var(--text-primary) !important;
     }
@@ -376,15 +401,35 @@ with st.sidebar:
     st.markdown("<hr>", unsafe_allow_html=True)
     
     # Tech filter
-    st.caption("Filter by technology")
+    st.markdown("**Filters**")
+    st.caption("Filter by tech")
     all_tech = collect_all_tech()
-    selected = st.multiselect(
+    selected = st.selectbox(
         "Filter by tech",
-        options=all_tech,
-        placeholder="e.g. Python, Power BI",
+        options=["All"] + sorted(all_tech),
         label_visibility="collapsed"
     )
-    st.session_state['filters'] = set(selected)
+    if selected != "All":
+        st.session_state['filters'] = {selected}
+    else:
+        st.session_state['filters'] = set()
+    
+    st.markdown("<hr>", unsafe_allow_html=True)
+    
+    # Download resume button
+    try:
+        with open("CV_AudreyNguyen_2025Nov15.pdf", "rb") as pdf_file:
+            st.download_button(
+                label="Download resume",
+                data=pdf_file,
+                file_name="CV_AudreyNguyen.pdf",
+                mime="application/pdf",
+                use_container_width=True
+            )
+    except FileNotFoundError:
+        # If PDF not found, show a placeholder button
+        st.button("Download resume", disabled=True, use_container_width=True)
+        st.caption("📄 Add CV_AudreyNguyen_2025Nov15.pdf to enable")
 
 # -----------------------------------------------------------------------------
 # MAIN CONTENT
@@ -398,13 +443,16 @@ st.markdown(f"*{PROFILE['tagline']}*")
 st.markdown("<hr>", unsafe_allow_html=True)
 
 # Metrics
-left, right = st.columns([3, 1])
+left, right = st.columns(2)
 with left:
     st.markdown(f"📧 **{PROFILE['email']}**")
 with right:
-    years_exp = datetime.now().year - 2020  # Started in 2020
-    st.metric("Years Experience", value=f"{years_exp}+")
-    st.metric("Projects", value=str(len(PROJECTS)))
+    col1, col2 = st.columns(2)
+    with col1:
+        years_exp = datetime.now().year - 2020  # Started in 2020
+        st.metric("Years Experience", value=f"{years_exp}+")
+    with col2:
+        st.metric("Projects", value=str(len(PROJECTS)))
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
