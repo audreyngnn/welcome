@@ -4,7 +4,7 @@ from datetime import datetime
 # PAGE SETUP
 st.set_page_config(
     page_title="Audrey Nguyen - Data Analytics Portfolio",
-    page_icon="📊",
+    page_icon="🍰",
     layout="wide",
     menu_items={
         "Get help": None,
@@ -20,24 +20,26 @@ st.set_page_config(
 PROFILE = {
     "name": "Audrey Nguyen",
     "role": "Data Analyst",
-    "tagline": "I build reliable, insightful data solutions with Power BI, Python, and ESG frameworks.",
+    "tagline": "I generate accurate, meaningful business insights using Power BI, Python, and ESG frameworks to guide strategic decisions.",
     "location": "Sydney, Australia",
     "email": "audrey.tranguyen@gmail.com",
     "website": None,
-    "github": "https://github.com/audreynguyen",
-    "linkedin": "https://www.linkedin.com/in/audrey-nguyen",
+    "github": "https://github.com/audreyngnn",
+    "linkedin": "https://www.linkedin.com/in/audrey-tra-nguyen/",
     "phone": "0432 063 579"
 }
 
 # Each skill has an optional list of keywords; level is 0..100
 SKILLS = [
     {"name": "Power BI", "level": 95, "keywords": ["DAX", "Data Modeling", "Microsoft Fabric", "Dashboards"]},
-    {"name": "Python", "level": 85, "keywords": ["Data Analysis", "Automation", "2+ years"]},
-    {"name": "R", "level": 80, "keywords": ["Statistical Analysis", "2+ years"]},
-    {"name": "PostgreSQL", "level": 80, "keywords": ["Database Design", "SQL Queries", "2+ years"]},
     {"name": "Tableau", "level": 85, "keywords": ["Data Visualization", "Dashboards"]},
-    {"name": "Excel", "level": 90, "keywords": ["Advanced Analytics", "Data Analysis"]},
-    {"name": "SQL Server", "level": 80, "keywords": ["Database Management", "Queries"]},
+
+    {"name": "Python", "level": 85, "keywords": ["Data Cleaning","Data Analysis", "Predictives", "2+ years"]},
+    {"name": "R", "level": 80, "keywords": ["Statistical Analysis", "Data Cleaning", "Data Visualisation", "2+ years"]},
+    {"name": "PostgreSQL", "level": 80, "keywords": ["Database Design", "SQL Queries", "2+ years"]},
+    
+    {"name": "Excel", "level": 90, "keywords": ["Advanced Analytics", "Data Analysis", "Power Pivot"]},
+    {"name": "SQL Server", "level": 80, "keywords": ["Database Management", "Queries", "ER Diagram"]},
 ]
 
 EXPERIENCE = [
@@ -177,6 +179,104 @@ ARTICLES = [
         "date": "2025"
     },
 ]
+
+
+
+# -----------------------------------------------------------------------------
+# HELPER FUNCTIONS
+# -----------------------------------------------------------------------------
+
+def emoji_map(tech_name):
+    """Map tech names to emojis"""
+    emoji_dict = {
+        'python': '🐍', 'power bi': '📊', 'tableau': '📈', 'sql': '🗄️',
+        'excel': '📗', 'r': '📊', 'dax': '🧮', 'esg': '🌱',
+        'pandas': '🐼', 'docker': '🐳'
+    }
+    return emoji_dict.get(tech_name.lower(), '🔹')
+
+def chips(items):
+    """Create tech stack chips/badges"""
+    return "".join(f'<span class="skill-badge">{st.session_state.get("_emoji_map", {}.get(i.lower(), ""))} {i}</span>' for i in items)
+
+def collect_all_tech():
+    """Collect unique technologies from experience and projects"""
+    tech = set()
+    for e in EXPERIENCE:
+        tech.update(e.get("tech", []))
+    for p in PROJECTS:
+        tech.update(p.get("tech", []))
+    for s in SKILLS:
+        tech.add(s['name']) # includes skill name
+        for k in s.get("keywords", []):
+            tech.add(k)
+    return sorted(tech)
+
+# -----------------------------------------------------------------------------
+# SIDEBAR
+# -----------------------------------------------------------------------------
+
+with st.sidebar:
+    # Profile photo
+    try:
+        st.image("profile_photo.jpg", width=200)
+    except:
+        st.markdown(f"""
+            <div style="width: 150px; height: 150px; border-radius: 50%; 
+            background: linear-gradient(135deg, #4c748c 0%, #8ce4e4 100%); 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 3rem; color: white; margin: 0 auto;">
+                {PROFILE['name'][:2]}
+            </div>
+        """, unsafe_allow_html=True)
+    
+    st.title(PROFILE['name'])
+    st.write(PROFILE['role'])
+    
+    # Contact info
+    st.markdown("**CONTACT**")
+    if PROFILE.get('location'):
+        st.markdown(f"📍 {PROFILE['location']}")
+    if PROFILE.get('email'):
+        st.markdown(f"📧 [{PROFILE['email']}](mailto:{PROFILE['email']})")
+    if PROFILE.get('github'):
+        st.markdown(f"💻 [GitHub]({PROFILE['github']})")
+    if PROFILE.get('linkedin'):
+        st.markdown(f"💼 [LinkedIn]({PROFILE['linkedin']})")
+     
+    st.markdown("<hr>", unsafe_allow_html=True)
+    
+    # Tech filter
+    st.markdown("**Filters**")
+    st.caption("Filter by tech")
+    all_tech = collect_all_tech()
+    selected = st.selectbox(
+        "Filter by tech",
+        options=["All"] + sorted(all_tech),
+        placeholder="e.g. Python, SQL",
+        label_visibility="collapsed"
+    )
+    if selected != "All":
+        st.session_state['filters'] = {selected}
+    else:
+        st.session_state['filters'] = set()
+    
+    st.markdown("<hr>", unsafe_allow_html=True)
+    
+    # Download resume button
+    try:
+        with open("CV_AudreyNguyen.pdf", "rb") as pdf_file:
+            st.download_button(
+                label="Download resume",
+                data=pdf_file,
+                file_name="CV_AudreyNguyen.pdf",
+                mime="application/pdf",
+                use_container_width=True
+            )
+    except FileNotFoundError:
+        # If PDF not found, show a placeholder button
+        st.button("Download resume", disabled=True, use_container_width=True)
+        st.caption("📄 Add CV_AudreyNguyen_2025Nov15.pdf to enable")
 
 # -----------------------------------------------------------------------------
 # STYLING
@@ -358,102 +458,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# -----------------------------------------------------------------------------
-# HELPER FUNCTIONS
-# -----------------------------------------------------------------------------
 
-def emoji_map(tech_name):
-    """Map tech names to emojis"""
-    emoji_dict = {
-        'python': '🐍', 'power bi': '📊', 'tableau': '📈', 'sql': '🗄️',
-        'excel': '📗', 'r': '📊', 'dax': '🧮', 'esg': '🌱',
-        'pandas': '🐼', 'react': '⚛️', 'docker': '🐳'
-    }
-    return emoji_dict.get(tech_name.lower(), '🔹')
-
-def chips(items):
-    """Create tech stack chips/badges"""
-    return "".join(f'<span class="skill-badge">{emoji_map(i)} {i}</span>' for i in items)
-
-def collect_all_tech():
-    """Collect unique technologies from experience and projects"""
-    tech = set()
-    for e in EXPERIENCE:
-        tech.update(e.get("tech", []))
-    for p in PROJECTS:
-        tech.update(p.get("tech", []))
-    for s in SKILLS:
-        tech.add(s['name'])
-        for k in s.get("keywords", []):
-            tech.add(k)
-    return sorted(tech)
-
-# -----------------------------------------------------------------------------
-# SIDEBAR
-# -----------------------------------------------------------------------------
-
-with st.sidebar:
-    # Profile photo
-    try:
-        st.image("profile_photo.jpg", width=150)
-    except:
-        st.markdown(f"""
-            <div style="width: 150px; height: 150px; border-radius: 50%; 
-            background: linear-gradient(135deg, #4c748c 0%, #8ce4e4 100%); 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 3rem; color: white; margin: 0 auto;">
-                {PROFILE['name'][:2]}
-            </div>
-        """, unsafe_allow_html=True)
-    
-    st.title(PROFILE['name'])
-    st.write(PROFILE['role'])
-    
-    st.markdown("<hr>", unsafe_allow_html=True)
-    
-    # Contact info
-    st.markdown("**CONTACT**")
-    if PROFILE.get('email'):
-        st.markdown(f"📧 [{PROFILE['email']}](mailto:{PROFILE['email']})")
-    if PROFILE.get('github'):
-        st.markdown(f"💻 [GitHub]({PROFILE['github']})")
-    if PROFILE.get('linkedin'):
-        st.markdown(f"💼 [LinkedIn]({PROFILE['linkedin']})")
-    if PROFILE.get('location'):
-        st.markdown(f"📍 {PROFILE['location']}")
-    
-    st.markdown("<hr>", unsafe_allow_html=True)
-    
-    # Tech filter
-    st.markdown("**Filters**")
-    st.caption("Filter by tech")
-    all_tech = collect_all_tech()
-    selected = st.selectbox(
-        "Filter by tech",
-        options=["All"] + sorted(all_tech),
-        label_visibility="collapsed"
-    )
-    if selected != "All":
-        st.session_state['filters'] = {selected}
-    else:
-        st.session_state['filters'] = set()
-    
-    st.markdown("<hr>", unsafe_allow_html=True)
-    
-    # Download resume button
-    try:
-        with open("CV_AudreyNguyen_2025Nov15.pdf", "rb") as pdf_file:
-            st.download_button(
-                label="Download resume",
-                data=pdf_file,
-                file_name="CV_AudreyNguyen.pdf",
-                mime="application/pdf",
-                use_container_width=True
-            )
-    except FileNotFoundError:
-        # If PDF not found, show a placeholder button
-        st.button("Download resume", disabled=True, use_container_width=True)
-        st.caption("📄 Add CV_AudreyNguyen_2025Nov15.pdf to enable")
 
 # -----------------------------------------------------------------------------
 # MAIN CONTENT
