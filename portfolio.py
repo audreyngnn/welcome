@@ -236,13 +236,32 @@ with st.sidebar:
     # Contact info
     st.markdown("**CONTACT**")
     if PROFILE.get('location'):
-        st.markdown(f"📍 {PROFILE['location']}")
+        col1, col2 = st.columns([0.5, 9.5])
+        with col1:
+            st.image("icons/location.png", width=16)
+        with col2:
+            st.markdown(PROFILE['location'])
+    
     if PROFILE.get('email'):
-        st.markdown(f"📧 [{PROFILE['email']}](mailto:{PROFILE['email']})")
+        col1, col2 = st.columns([0.5, 9.5])
+        with col1:
+            st.image("icons/email.png", width=16)
+        with col2:
+            st.markdown(f"[{PROFILE['email']}](mailto:{PROFILE['email']})")
+    
     if PROFILE.get('github'):
-        st.markdown(f"💻 [GitHub]({PROFILE['github']})")
+        col1, col2 = st.columns([0.5, 9.5])
+        with col1:
+            st.image("icons/github.png", width=16)
+        with col2:
+            st.markdown(f"[GitHub]({PROFILE['github']})")
+    
     if PROFILE.get('linkedin'):
-        st.markdown(f"💼 [LinkedIn]({PROFILE['linkedin']})")
+        col1, col2 = st.columns([0.5, 9.5])
+        with col1:
+            st.image("icons/linkedin.png", width=16)
+        with col2:
+            st.markdown(f"[LinkedIn]({PROFILE['linkedin']})")
      
     st.markdown("<hr>", unsafe_allow_html=True)
     
@@ -278,185 +297,6 @@ with st.sidebar:
         st.button("Download resume", disabled=True, use_container_width=True)
         st.caption("📄 Add CV_AudreyNguyen_2025Nov15.pdf to enable")
 
-# -----------------------------------------------------------------------------
-# STYLING
-# -----------------------------------------------------------------------------
-
-st.markdown("""
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-    
-    :root {
-        --primary-blue: #4c748c;
-        --accent-teal: #8ce4e4;
-        --light-mint: #cdefe3;
-        --dark-bg: #1a1d29;
-        --card-bg: #242735;
-        --sidebar-bg: #0e1117;
-        --text-primary: #e8eaed;
-        --text-secondary: #9aa0a6;
-    }
-    
-    .stApp {
-        background-color: var(--dark-bg);
-        font-family: 'Inter', sans-serif;
-    }
-    
-    /* Sidebar - Dark Navy/Charcoal Background */
-    [data-testid="stSidebar"] {
-        background-color: var(--sidebar-bg) !important;
-    }
-    
-    [data-testid="stSidebar"] > div:first-child {
-        background-color: var(--sidebar-bg) !important;
-    }
-    
-    /* Sidebar text colors */
-    [data-testid="stSidebar"] h1,
-    [data-testid="stSidebar"] h2,
-    [data-testid="stSidebar"] h3,
-    [data-testid="stSidebar"] p,
-    [data-testid="stSidebar"] span,
-    [data-testid="stSidebar"] div,
-    [data-testid="stSidebar"] label {
-        color: var(--text-primary) !important;
-    }
-    
-    /* Sidebar links */
-    [data-testid="stSidebar"] a {
-        color: var(--accent-teal) !important;
-    }
-    
-    [data-testid="stSidebar"] a:hover {
-        color: var(--light-mint) !important;
-    }
-    
-    /* Sidebar caption/small text */
-    [data-testid="stSidebar"] .caption {
-        color: var(--text-secondary) !important;
-    }
-    
-    /* Sidebar multiselect */
-    [data-testid="stSidebar"] .stMultiSelect {
-        background-color: rgba(255, 255, 255, 0.05);
-    }
-    
-    /* Sidebar selectbox (dropdown) */
-    [data-testid="stSidebar"] .stSelectbox > div > div {
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        color: var(--text-primary);
-    }
-    
-    /* Dropdown menu options - easier to read */
-    [data-testid="stSidebar"] [data-baseweb="select"] {
-        color: var(--text-primary) !important;
-    }
-    
-    /* Dropdown list background and text */
-    [role="listbox"] {
-        background-color: #1a1d29 !important;
-    }
-    
-    [role="option"] {
-        color: var(--text-primary) !important;
-        background-color: transparent;
-    }
-    
-    [role="option"]:hover {
-        background-color: rgba(140, 228, 228, 0.1) !important;
-    }
-    
-    /* Selected option text visibility */
-    [data-baseweb="select"] > div {
-        color: var(--text-primary) !important;
-    }
-    
-    /* Download button styling */
-    [data-testid="stSidebar"] .stDownloadButton > button {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: var(--text-primary);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        padding: 0.5rem 1rem;
-        width: 100%;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-    
-    [data-testid="stSidebar"] .stDownloadButton > button:hover {
-        background-color: rgba(255, 255, 255, 0.15);
-        border-color: var(--accent-teal);
-    }
-    
-    h1, h2, h3, h4, h5, h6, p, li, span, div, label {
-        color: var(--text-primary) !important;
-    }
-    
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-    }
-    
-    .stTabs [data-baseweb="tab"] {
-        background-color: var(--card-bg);
-        border-radius: 8px;
-        padding: 8px 16px;
-        color: var(--text-secondary);
-    }
-    
-    .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
-        color: white !important;
-    }
-    
-    .project-card {
-        background: var(--card-bg);
-        padding: 1.5rem;
-        border-radius: 12px;
-        border: 1px solid rgba(140, 228, 228, 0.2);
-        margin-bottom: 1rem;
-        transition: all 0.3s ease;
-    }
-    
-    .project-card:hover {
-        border-color: var(--accent-teal);
-        transform: translateY(-5px);
-        box-shadow: 0 12px 24px rgba(140, 228, 228, 0.15);
-    }
-    
-    .skill-badge {
-        display: inline-block;
-        background: rgba(140, 228, 228, 0.1);
-        color: var(--accent-teal);
-        padding: 4px 12px;
-        border-radius: 12px;
-        font-size: 0.85rem;
-        margin: 4px;
-        border: 1px solid rgba(140, 228, 228, 0.3);
-    }
-    
-    .stMetric {
-        background-color: var(--card-bg);
-        padding: 1rem;
-        border-radius: 8px;
-    }
-    
-    .stProgress > div > div {
-        background-color: var(--accent-teal);
-    }
-    
-    a {
-        color: var(--accent-teal) !important;
-        text-decoration: none;
-    }
-    
-    a:hover {
-        color: var(--light-mint) !important;
-        text-decoration: underline;
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 
 
@@ -466,19 +306,16 @@ st.markdown("""
 
 # Header
 st.markdown(f"<h1 style='color: var(--text-primary); font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem;'>{PROFILE['name']}</h1>", unsafe_allow_html=True)
-st.markdown(f"**{PROFILE['role']}** · {PROFILE['location']}")
-st.markdown(f"*{PROFILE['tagline']}*")
 
-st.markdown("<hr>", unsafe_allow_html=True)
-
-# Metrics
 left, right = st.columns(2)
 with left:
+    st.markdown(f"**{PROFILE['role']}** · {PROFILE['location']}")
+    st.markdown(f"*{PROFILE['tagline']}*")
     st.markdown(f"📧 **{PROFILE['email']}**")
 with right:
     col1, col2 = st.columns(2)
     with col1:
-        years_exp = datetime.now().year - 2020  # Started in 2020
+        years_exp = datetime.now().year - 2023  # Started in 2023
         st.metric("Years Experience", value=f"{years_exp}+")
     with col2:
         st.metric("Projects", value=str(len(PROJECTS)))
