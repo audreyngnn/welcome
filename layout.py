@@ -486,7 +486,7 @@ def apply_custom_styles():
             color: var(--text-secondary);
         }
 
-                /* ==================== HEADER & MENU STYLING ==================== */
+        /* ==================== HEADER & MENU STYLING ==================== */
         header[data-testid="stHeader"] {
             background-color: var(--bg-primary) !important;
         }
@@ -579,6 +579,240 @@ def apply_custom_styles():
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 1rem;
+        }
+       
+        /* ==================== MOBILE RESPONSIVE STYLES ==================== */
+        @media only screen and (max-width: 768px) {
+            /* Main content padding */
+            .main {
+                padding: 1rem !important;
+            }
+           
+            /* Sidebar adjustments */
+            [data-testid="stSidebar"] {
+                padding: 1.5rem 0.75rem !important;
+            }
+           
+            [data-testid="stSidebar"] h1 {
+                font-size: 1.5rem !important;
+            }
+           
+            [data-testid="stSidebar"] h2 {
+                font-size: 1.3rem !important;
+            }
+           
+            [data-testid="stSidebar"] h3 {
+                font-size: 0.8rem !important;
+            }
+           
+            /* Profile image - smaller on mobile */
+            .profile-container img {
+                width: 150px !important;
+                height: 150px !important;
+            }
+           
+            /* Contact items - stack better on mobile */
+            .contact-item {
+                font-size: 0.8rem !important;
+                padding: 0.6rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+           
+            /* Headers */
+            h1 {
+                font-size: 1.8rem !important;
+            }
+           
+            h2 {
+                font-size: 1.5rem !important;
+            }
+           
+            h3 {
+                font-size: 1.2rem !important;
+            }
+           
+            .section-header {
+                font-size: 1.5rem !important;
+            }
+           
+            /* Project cards */
+            .project-card {
+                padding: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+           
+            .project-card h4 {
+                font-size: 1rem !important;
+            }
+           
+            .project-card p {
+                font-size: 0.9rem !important;
+            }
+           
+            /* Skill badges - smaller on mobile */
+            .skill-badge {
+                padding: 4px 10px !important;
+                margin: 3px 3px 3px 0 !important;
+                font-size: 0.75rem !important;
+            }
+           
+            /* Buttons */
+            .simple-btn {
+                padding: 8px 16px !important;
+                font-size: 0.85rem !important;
+                display: block !important;
+                text-align: center !important;
+                width: 100% !important;
+                margin-bottom: 0.5rem !important;
+            }
+           
+            .stDownloadButton button {
+                padding: 0.6rem 0.8rem !important;
+                font-size: 0.85rem !important;
+            }
+           
+            /* Experience cards */
+            .experience-card {
+                padding: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+           
+            .experience-card h3 {
+                font-size: 1.1rem !important;
+            }
+           
+            .experience-card .company {
+                font-size: 0.95rem !important;
+            }
+           
+            .experience-card .period {
+                font-size: 0.85rem !important;
+            }
+           
+            /* Education and award items */
+            .education-item, .award-item {
+                padding: 1rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+           
+            .education-item h4, .award-item h4 {
+                font-size: 1rem !important;
+            }
+           
+            .education-item p, .award-item p {
+                font-size: 0.9rem !important;
+            }
+           
+            /* Article cards */
+            .article-card {
+                padding: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+           
+            .article-card h3 {
+                font-size: 1.1rem !important;
+            }
+           
+            .article-card p {
+                font-size: 0.9rem !important;
+            }
+           
+            /* Metrics */
+            [data-testid="stMetricValue"] {
+                font-size: 1.5rem !important;
+            }
+           
+            [data-testid="stMetricLabel"] {
+                font-size: 0.95rem !important;
+            }
+           
+            /* Footer */
+            .footer {
+                padding: 1.5rem 1rem !important;
+                margin-top: 2rem !important;
+            }
+           
+            /* Tables - make them scrollable on mobile */
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+           
+            th, td {
+                padding: 0.5rem !important;
+                font-size: 0.85rem !important;
+            }
+           
+            /* Lists */
+            li {
+                font-size: 0.9rem !important;
+                margin-bottom: 0.4rem !important;
+            }
+           
+            /* General text */
+            p, span {
+                font-size: 0.9rem !important;
+            }
+           
+            /* Containers */
+            [data-testid="stVerticalBlock"] > [style*="flex-direction: column;"] > [data-testid="stVerticalBlock"] {
+                padding: 0.75rem !important;
+            }
+        }
+       
+        /* ==================== EXTRA SMALL MOBILE (< 480px) ==================== */
+        @media only screen and (max-width: 480px) {
+            /* Even more compact for very small screens */
+            .main {
+                padding: 0.75rem !important;
+            }
+           
+            [data-testid="stSidebar"] {
+                padding: 1rem 0.5rem !important;
+            }
+           
+            .profile-container img {
+                width: 120px !important;
+                height: 120px !important;
+            }
+           
+            h1 {
+                font-size: 1.5rem !important;
+            }
+           
+            h2 {
+                font-size: 1.3rem !important;
+            }
+           
+            .section-header {
+                font-size: 1.3rem !important;
+            }
+           
+            .project-card, .experience-card, .education-item, .award-item, .article-card {
+                padding: 0.75rem !important;
+            }
+           
+            .skill-badge {
+                padding: 3px 8px !important;
+                font-size: 0.7rem !important;
+            }
+        }
+       
+        /* ==================== TABLET (769px - 1024px) ==================== */
+        @media only screen and (min-width: 769px) and (max-width: 1024px) {
+            .main {
+                padding: 1.5rem 2rem !important;
+            }
+           
+            .profile-container img {
+                width: 180px !important;
+                height: 180px !important;
+            }
+           
+            .project-card {
+                padding: 1.25rem !important;
+            }
         }
     </style>
     """, unsafe_allow_html=True)
