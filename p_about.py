@@ -42,7 +42,7 @@ with col1:
 with col2:
     st.markdown("#### Core Strengths")
     strengths = [
-        "Advanced Excel"
+        "Advanced Excel",
         "Advanced DAX & Data Modeling",
         "Statistical Analysis (Python & R)",
         "Financial Analysis",

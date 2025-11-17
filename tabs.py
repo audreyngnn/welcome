@@ -1,5 +1,5 @@
 """
-Component Helpers
+TABS
 Reusable UI components for the portfolio
 """
 
@@ -13,12 +13,12 @@ def skill_chips(items):
 def profile_header(profile):
     """Render the profile header section"""
     st.markdown(f"""
-        <h1 style='font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #1A1A1A;'>{profile['name']}</h1>
-        <p style='font-size: 1.2rem; color: #666666; margin-bottom: 0.25rem;'>{profile['role']} • {profile['location']}</p>
-        <p style='font-size: 1rem; color: #333333; margin-bottom: 2rem; line-height: 1.6;'>{profile['tagline']}</p>
+        <h1 style='font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #3d3a2a;'>{profile['name']}</h1>
+        <p style='font-size: 1.2rem; color: #3d3a2a; margin-bottom: 0.25rem;'>{profile['role']} • {profile['location']}</p>
+        <p style='font-size: 1rem; color: #3d3a2a; margin-bottom: 2rem; line-height: 1.6;'>{profile['tagline']}</p>
     """, unsafe_allow_html=True)
 
-def quick_stats(projects, education, awards, start_year=2020):
+def quick_stats(projects, education, awards, start_year=2023):
     """Render quick stats metrics"""
     col1, col2, col3, col4 = st.columns(4)
     with col1:
@@ -27,7 +27,7 @@ def quick_stats(projects, education, awards, start_year=2020):
     with col2:
         st.metric("Projects", value=str(len(projects)))
     with col3:
-        st.metric("Degrees", value=str(len(education)))
+        st.metric("Degrees", value=2)
     with col4:
         st.metric("Awards", value=str(len(awards)))
 
@@ -36,7 +36,7 @@ def sidebar_profile(profile):
     # Profile photo
     try:
         st.markdown('<div class="profile-container">', unsafe_allow_html=True)
-        st.image("profile_photo.jpg", width=200)
+        st.image("profile_photo.jpg", width=222)
         st.markdown('</div>', unsafe_allow_html=True)
     except:
         st.markdown(f"""
@@ -50,13 +50,13 @@ def sidebar_profile(profile):
             </div>
         """, unsafe_allow_html=True)
     
-    st.markdown(f"<h2 style='text-align: center; margin-top: 1rem; margin-bottom: 0.25rem;'>{profile['name']}</h2>", unsafe_allow_html=True)
-    st.markdown(f"<p style='text-align: center; color: #666666; font-size: 1rem; margin-bottom: 0;'>{profile['role']}</p>", unsafe_allow_html=True)
+    st.markdown(f"<h2 style='text-align: center; margin-top: 0.25rem; margin-bottom: 0.25rem;'>{profile['name']}</h2>", unsafe_allow_html=True)
+    st.markdown(f"<p style='text-align: center; color: #3d3a2a; font-size: 1.2rem; margin-bottom: 0;'>{profile['role']}</p>", unsafe_allow_html=True)
 
 def sidebar_contact(profile):
     """Render sidebar contact information"""
     st.markdown("<hr>", unsafe_allow_html=True)
-    st.markdown("### Contact")
+    st.markdown("Contact")
     
     if profile.get('location'):
         col1, col2 = st.columns([1, 9])
@@ -108,7 +108,7 @@ def sidebar_contact(profile):
 def sidebar_filter(skills, experience, projects):
     """Render sidebar technology filter"""
     st.markdown("<hr>", unsafe_allow_html=True)
-    st.markdown("### Filter")
+    st.markdown("Filter")
     
     # Collect all technologies
     tech = set()
@@ -177,7 +177,7 @@ def render_project_card(project):
     
     st.markdown(f"""
     <div class="project-card">
-        <h4>{project['name']}</h4>
+        <h3>{project['name']}</h3>
         <p>{project['description']}</p>
         <div style='margin: 1rem 0;'>{skill_chips(project.get('tech', []))}</div>
         {'<a class="simple-btn" href="' + project['link'] + '" target="_blank">View Project →</a>' if project.get('link') else ''}
@@ -188,7 +188,7 @@ def render_education_item(edu):
     """Render an education item"""
     st.markdown(f"""
     <div class="education-item">
-        <h4>{edu['degree']}</h4>
+        <h3>{edu['degree']}</h3>
         <p style='margin: 0 0 0.25rem 0; color: #333333; font-weight: 500;'>{edu['school']}</p>
         <p style='margin: 0 0 0.5rem 0; color: #666666; font-size: 0.9rem;'>{edu['period']} • {edu['location']}</p>
         {f"<p style='margin: 0; color: #333333; font-style: italic;'>{edu['details']}</p>" if edu.get('details') else ""}
@@ -199,7 +199,7 @@ def render_award_item(award):
     """Render an award item"""
     st.markdown(f"""
     <div class="award-item">
-        <h4>🏆 {award['name']}</h4>
+        <h3>🏆 {award['name']}</h3>
         <p style='margin: 0 0 0.25rem 0; color: #333333; font-weight: 500;'>{award['organization']}</p>
         {f"<p style='margin: 0; color: #666666;'>{award['details']}</p>" if award.get('details') else ""}
     </div>
@@ -222,11 +222,12 @@ def render_footer():
     st.markdown("""
     <div class="footer">
         <h3 style='color: #1A1A1A; margin-bottom: 0.75rem; font-weight: 600;'>Let's Connect</h3>
+        <p style='text-align: center; font-size: 1.2rem; margin: 0.5rem 0;'>𓆝 𓆟 𓆞 𓆝 𓆟</p>
         <p style='color: #666666; margin-bottom: 0.5rem;'>
             Interested in working together? Feel free to reach out.
         </p>
         <p style='color: #999999; font-size: 0.9rem;'>
-            © 2025 Audrey Nguyen • Built with Streamlit
+            © 2025 Audrey Nguyen • Built with passion ✦
         </p>
     </div>
     """, unsafe_allow_html=True)

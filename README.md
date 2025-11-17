@@ -1,137 +1,213 @@
-# Audrey's Data Analytics Portfolio
+# Audrey Nguyen - Data Analytics Portfolio
 
-### 1. **Dark Theme with "Chill Coding Vibe" Color Palette**
-- Primary Blue: `#4c748c`
-- Accent Teal: `#8ce4e4`
-- Light Mint: `#cdefe3`
-- Dark Background: `#1a1d29`
-- Card Background: `#242735`
+A portfolio website built with Streamlit featuring an Anthropic-inspired light theme and multi-page navigation.
 
-### 2. **Enhanced Navigation**
-- Emoji icons for each page (👋 Welcome, 🎯 Problem Statement, 📊 Dashboard, ✨ Credits, 👩‍💻 About Me)
-- Smooth hover effects with color transitions
-- Active page highlighting with gradient background
-- Sliding animation on hover
+## 🎨 Design Features
 
-### 3. **UI Improvements**
-- Gradient text effects for headers
-- Glassmorphism-style cards with hover animations
-- Enhanced dashboard containers with glow effects
-- Better visual hierarchy with the Inter font family
-- Improved link styling and button designs
+- **Anthropic-inspired Light Theme**: Clean, professional design with subtle colors
+- **Multi-page Navigation**: Separate pages for different content sections
+- **Responsive Layout**: Adapts to different screen sizes
+- **Interactive Filtering**: Filter projects and experience by technology
+- **Modern Typography**: Inter font family for clean, readable text
 
-## Setup Instructions
-
-### Option 1: Local Setup
-
-1. **Install Streamlit** (if you haven't already):
-   ```bash
-   pip install streamlit
-   ```
-
-2. **Create the `.streamlit` folder** in your project directory:
-   ```bash
-   mkdir .streamlit
-   ```
-
-3. **Add the config file**:
-   - Copy `config.toml` to the `.streamlit` folder
-
-4. **Run the app**:
-   ```bash
-   streamlit run portfolio_app.py
-   ```
-
-### Option 2: Streamlit Cloud Deployment
-
-1. **Push to GitHub**:
-   - Create a new repository
-   - Add `portfolio_app.py` and create a `.streamlit/config.toml` file with the provided config
-
-2. **Deploy on Streamlit Cloud**:
-   - Go to [share.streamlit.io](https://share.streamlit.io)
-   - Connect your GitHub repository
-   - Select `portfolio_app.py` as the main file
-   - Deploy!
-
-## File Structure
+## 📁 Project Structure
 
 ```
-your-portfolio/
-├── portfolio_app.py          # Main application file
-├── requirements.txt          # Dependencies
-├── profile_photo.jpg         # Your profile photo (400x400px)
-├── images/                   # Project cover images folder
-│   ├── sdg7_cover.jpg       # SDG 7 project cover (1200x600px)
-│   ├── retention_cover.jpg  # Student Retention cover (1200x600px)
-│   ├── bike_sales_cover.jpg # Bike Sales cover (1200x600px)
-│   └── dragonwagon_cover.jpg # DragonWagon cover (1200x600px)
-└── .streamlit/
-    └── config.toml          # Theme configuration
+portfolio/
+├── streamlit_app.py          # Main application with navigation
+├── portfolio_data.py          # All portfolio data (profile, skills, experience, etc.)
+├── portfolio_styles.py        # CSS styling with Anthropic-inspired theme
+├── portfolio_components.py    # Reusable UI components
+├── page_about.py             # About/Home page
+├── page_experience.py        # Professional experience page
+├── page_projects.py          # Featured projects page
+├── page_skills.py            # Technical skills page
+├── page_education.py         # Education and awards page
+├── page_articles.py          # Articles and writing page
+├── CV_AudreyNguyen.pdf       # Resume PDF (optional)
+├── profile_photo.jpg         # Profile photo (optional)
+└── images/                   # Project images folder
+    ├── sdg7_cover.jpg
+    ├── retention_cover.jpg
+    ├── bike_sales_cover.jpg
+    └── dragonwagon_cover.jpg
 ```
 
-**Note:** If you don't have images yet, the app will display beautiful gradient placeholders!
+## 🚀 Getting Started
 
-## Navigation Pages
+### Prerequisites
 
-The navigation now uses a cleaner icon-based system:
-
-- **👋 Welcome** - Home page (same as before)
-- **👩‍💻 About Me** - About page
-- **🎯 Power BI Dashboards** - Power BI projects
-- **📊 Tableau Dashboards** - Tableau projects
-- **✨ Articles & Writing** - Articles and technical writing
-
-## Customization Tips
-
-### Change Colors
-Edit the CSS variables in the `<style>` section:
-```css
-:root {
-    --primary-blue: #4c748c;
-    --accent-teal: #8ce4e4;
-    --light-mint: #cdefe3;
-    /* ... */
-}
+```bash
+pip install streamlit
 ```
 
-### Add More Navigation Items
-Update the `nav_options` dictionary:
+### Running Locally
+
+```bash
+streamlit run streamlit_app.py
+```
+
+### Deployment to Streamlit Cloud
+
+1. Push all files to GitHub repository
+2. Connect to Streamlit Cloud
+3. Deploy from your repository
+
+## 🎨 Color Palette
+
+The Anthropic-inspired light theme uses:
+
+- **Primary Accent**: #CC785C (Warm terracotta)
+- **Background**: #FFFFFF (Pure white)
+- **Secondary Background**: #FAFAFA (Light gray)
+- **Text Primary**: #1A1A1A (Almost black)
+- **Text Secondary**: #666666 (Medium gray)
+- **Borders**: #E5E5E5 (Light border)
+
+## 📝 Customization Guide
+
+### Update Your Information
+
+Edit `portfolio_data.py`:
+
 ```python
-nav_options = {
-    "👋 Welcome": "Home",
-    "👩‍💻 About Me": "About Me",
-    "🎯 Power BI Dashboards": "Power BI Dashboards",
-    # Add your new page here
+PROFILE = {
+    "name": "Your Name",
+    "role": "Your Role",
+    # ... update other fields
 }
 ```
 
-### Modify Hover Effects
-Look for `transition` and `:hover` CSS rules to adjust animation speeds and effects.
+### Add New Projects
 
-## Features
+Add to `PROJECTS` list in `portfolio_data.py`:
 
-✨ **Dark Mode** - Easy on the eyes with a professional dark theme
-🎨 **Color Palette** - Cohesive "chill coding vibe" color scheme
-🎯 **Enhanced Navigation** - Icon-based navigation with smooth animations
-📊 **Interactive Cards** - Hover effects and glassmorphism design
-🔗 **Responsive Links** - Styled with theme colors and hover states
-⚡ **Performance** - Optimized CSS and efficient rendering
+```python
+{
+    "name": "Project Name",
+    "description": "Project description",
+    "tech": ["Tech1", "Tech2"],
+    "link": "https://project-link.com",
+    "image": "images/project.jpg",
+    "year": "2025"
+}
+```
 
-## Troubleshooting
+### Modify Colors
 
-**Theme not applying?**
-- Make sure `config.toml` is in the `.streamlit` folder
-- Restart the Streamlit server
-- Clear browser cache (Ctrl+Shift+R or Cmd+Shift+R)
+Edit `portfolio_styles.py` and update the color variables:
 
-**Colors look different?**
-- Check if your browser has dark mode extensions that might interfere
-- Try viewing in an incognito/private window
+```css
+/* Change primary accent color */
+background-color: #CC785C; /* Replace with your color */
+```
 
-**Navigation not working?**
-- Ensure all page names in `nav_options` match the `if page == "..."` conditions
+### Add New Pages
+
+1. Create new page file: `page_newpage.py`
+2. Add to navigation in `streamlit_app.py`:
+
+```python
+st.Page(
+    "page_newpage.py",
+    title="New Page",
+    icon="🆕"
+)
+```
+
+## 📦 Required Files
+
+### Essential Files
+- `streamlit_app.py` - Main application (required)
+- `portfolio_data.py` - Your data (required)
+- `portfolio_styles.py` - Styling (required)
+- `portfolio_components.py` - UI components (required)
+- All `page_*.py` files (required)
+
+### Optional Files
+- `CV_AudreyNguyen.pdf` - Resume download
+- `profile_photo.jpg` - Profile picture
+- `images/` folder - Project screenshots
+- `icons/` folder - Custom contact icons
+
+## 🔧 Features
+
+### Technology Filtering
+- Sidebar filter automatically collects all technologies
+- Filter projects and experience by selected technology
+- Real-time filtering without page reload
+
+### Responsive Design
+- Adapts to mobile, tablet, and desktop screens
+- Clean card-based layout
+- Optimized for readability
+
+### Performance
+- Modular code structure for easy maintenance
+- Reusable components reduce code duplication
+- Efficient state management
+
+## 📸 Adding Images
+
+Place images in appropriate folders:
+
+```
+images/
+├── sdg7_cover.jpg
+├── retention_cover.jpg
+└── bike_sales_cover.jpg
+
+icons/
+├── email.png
+├── location.png
+├── github.png
+└── linkedin.png
+```
+
+## 🎯 Key Improvements Over Previous Version
+
+1. **Multi-page Navigation**: Cleaner organization vs. tabs
+2. **Light Theme**: More professional, easier to read
+3. **Modular Structure**: Better code organization
+4. **Reusable Components**: Easier to maintain and update
+5. **Better Performance**: Faster load times with separated pages
+6. **Enhanced UX**: Cleaner navigation and filtering
+
+## 💡 Tips
+
+- Update `portfolio_data.py` regularly with new projects
+- Keep images optimized (<500KB) for faster loading
+- Use consistent naming for technology tags for better filtering
+- Test on mobile devices before deployment
+- Keep resume PDF up to date
+
+## 🐛 Troubleshooting
+
+**Images not showing?**
+- Check file paths are correct
+- Ensure images are in correct folders
+- Use try/except blocks for optional images
+
+**Filter not working?**
+- Check technology names match exactly in SKILLS, EXPERIENCE, and PROJECTS
+- Case-sensitive matching
+
+**Styling issues?**
+- Clear browser cache
+- Check CSS syntax in `portfolio_styles.py`
+- Verify class names match in HTML and CSS
+
+## 📄 License
+
+This portfolio template is free to use and modify for personal use.
+
+## 👤 Contact
+
+Audrey Nguyen
+- Email: audrey.tranguyen@gmail.com
+- LinkedIn: [linkedin.com/in/audrey-tra-nguyen](https://www.linkedin.com/in/audrey-tra-nguyen/)
+- GitHub: [github.com/audreyngnn](https://github.com/audreyngnn)
 
 ---
 
-Built with ❤️ using Streamlit and the "chill coding vibe" color palett
+Built with ❤️ using Streamlit
