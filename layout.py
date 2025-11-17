@@ -15,7 +15,8 @@ def apply_custom_styles():
         /* Import Professional Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
        
-        /* ==================== LIGHT THEME (DEFAULT) ==================== */
+        /* ==================== THEME VARIABLES ==================== */
+        /* Light theme ONLY - forced for all devices */
         :root {
             --bg-primary: #fdfdf8;
             --bg-secondary: #f0f0ec;
@@ -31,23 +32,46 @@ def apply_custom_styles():
             --border-color: #E5E5E5;
             --sidebar-bg: #f0f0ec;
         }
-       
-        /* ==================== DARK THEME ==================== */
+        
+        /* Force light theme colors even if user has dark mode preference */
+        .stApp,
+        [data-testid="stAppViewContainer"],
+        [data-testid="stAppViewBlockContainer"] {
+            background-color: #fdfdf8 !important;
+            color: #1A1A1A !important;
+        }
+        
+        [data-testid="stSidebar"] {
+            background-color: #f0f0ec !important;
+        }
+        
+        /* Override any dark mode preferences */
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-primary: #1a1a1a;
-                --bg-secondary: #2d2d2d;
-                --bg-card: #252525;
-                --bg-hover: #3a3a3a;
-                --text-primary: #e5e5e5;
-                --text-secondary: #d0d0d0;
-                --text-tertiary: #a0a0a0;
-                --accent-primary: #e69580;
-                --accent-secondary: #d4816d;
-                --accent-green: #7a9b3a;
-                --accent-lime: #c5d945;
-                --border-color: #404040;
-                --sidebar-bg: #2d2d2d;
+                --bg-primary: #fdfdf8 !important;
+                --bg-secondary: #f0f0ec !important;
+                --bg-card: #FFFFFF !important;
+                --bg-hover: #FFF5F2 !important;
+                --text-primary: #1A1A1A !important;
+                --text-secondary: #333333 !important;
+                --text-tertiary: #666666 !important;
+                --accent-primary: #CC785C !important;
+                --accent-secondary: #B86A4F !important;
+                --accent-green: #3d5519 !important;
+                --accent-lime: #b1c92c !important;
+                --border-color: #E5E5E5 !important;
+                --sidebar-bg: #f0f0ec !important;
+            }
+            
+            .stApp,
+            [data-testid="stAppViewContainer"],
+            [data-testid="stAppViewBlockContainer"] {
+                background-color: #fdfdf8 !important;
+                color: #1A1A1A !important;
+            }
+            
+            [data-testid="stSidebar"] {
+                background-color: #f0f0ec !important;
             }
         }
        
@@ -544,16 +568,10 @@ def apply_custom_styles():
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
-            background-color: #ecebe3 !important;
+            background-color: var(--bg-secondary);
             border-top: 1px solid var(--border-color);
             border-radius: 8px;
             color: var(--text-tertiary);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .footer {
-                background-color: #2a2a2a !important;
-            }
         }
        
         /* ==================== DOWNLOAD BUTTON ==================== */

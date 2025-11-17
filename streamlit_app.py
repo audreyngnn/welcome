@@ -31,6 +31,7 @@ st.set_page_config(
     page_title="Audrey Nguyen - Data Analytics Portfolio",
     page_icon="❀",
     layout="wide",
+    initial_sidebar_state="expanded",
     menu_items={
         "Get help": None,
         "Report a bug": None,

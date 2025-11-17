@@ -1,0 +1,11 @@
+[theme]
+# Force light theme
+primaryColor = "#CC785C"
+backgroundColor = "#fdfdf8"
+secondaryBackgroundColor = "#f0f0ec"
+textColor = "#1A1A1A"
+font = "sans serif"
+
+[client]
+# Disable theme change option in settings
+showSidebarNavigation = true
