@@ -70,9 +70,9 @@ def apply_custom_styles():
        
         /* ==================== SIDEBAR STYLING ==================== */
         [data-testid="stSidebar"] {
-            background-color: var(--sidebar-bg);
-            padding: 2.0rem 1.0rem;
-            border-right: 1px solid var(--border-color);
+        background-color: var(--sidebar-bg);
+        padding: 2.0rem 0.5rem 2.0rem 1.0rem; /* Reduced right padding */
+        border-right: 1px solid var(--border-color);
         }
        
         [data-testid="stSidebar"] hr {
@@ -105,7 +105,7 @@ def apply_custom_styles():
             letter-spacing: 0.5px;
         }
        
-        /* Profile image container */
+        /* Profile image container - Larger image */
         .profile-container {
             text-align: center;
             margin-bottom: 1rem;
@@ -116,6 +116,9 @@ def apply_custom_styles():
             border: 3px solid var(--border-color);
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             margin-bottom: 0.5rem;
+            width: 200px !important;  /* Increased from default */
+            height: 200px !important; /* Increased from default */
+            object-fit: cover;
         }
 
         [data-testid="stSidebar"] .profile-container + h2 {
@@ -153,7 +156,33 @@ def apply_custom_styles():
             margin-right: 3px;
             flex-shrink: 0;
         }
-       
+
+        /* ==================== SCROLLBAR STYLING ==================== */
+        /* Sidebar scrollbar */
+        [data-testid="stSidebar"] ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        [data-testid="stSidebar"] ::-webkit-scrollbar-track {
+            background: transparent;
+            margin-right: 2px; /* Moves scrollbar closer to right edge */
+        }
+
+        [data-testid="stSidebar"] ::-webkit-scrollbar-thumb {
+            background: #c0c0c0;
+            border-radius: 4px;
+        }
+
+        [data-testid="stSidebar"] ::-webkit-scrollbar-thumb:hover {
+            background: #a0a0a0;
+        }
+
+        /* For Firefox */
+        [data-testid="stSidebar"] {
+            scrollbar-width: thin;
+            scrollbar-color: #d2b891;
+        }
+            
         /* ==================== SKILL BADGES ==================== */
         .skill-badge {
             display: inline-block;
