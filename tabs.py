@@ -13,9 +13,12 @@ def skill_chips(items):
 def profile_header(profile):
     """Render the profile header section"""
     st.markdown(f"""
-        <h1 style='font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #3d3a2a;'>{profile['name']}</h1>
-        <p style='font-size: 1.2rem; color: #3d3a2a; margin-bottom: 0.25rem;'>{profile['role']} • {profile['location']}</p>
-        <p style='font-size: 1rem; color: #3d3a2a; margin-bottom: 2rem; line-height: 1.6;'>{profile['tagline']}</p>
+        <h1 style='font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #3d3a2a;'>{profile['name']} 🌿 </h1>
+        <p style='font-size: 1.2rem; margin-bottom: 0.25rem;'>
+            <span style='color: #3d5519;'> {profile['role']} </span>
+            <span style='color: #323427;'> • {profile['location']}</span>
+        </p>
+        <p style='font-size: 1.0rem; color: #1A1A1A; margin-bottom: 2rem; line-height: 1.6;'>{profile['tagline']}</p>
     """, unsafe_allow_html=True)
 
 def quick_stats(projects, education, awards, start_year=2023):
@@ -23,13 +26,13 @@ def quick_stats(projects, education, awards, start_year=2023):
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         years_exp = datetime.now().year - start_year
-        st.metric("Years Experience", value=f"{years_exp}+")
+        st.metric("**Years Experience**", value=f"{years_exp}+")
     with col2:
-        st.metric("Projects", value=str(len(projects)))
+        st.metric("**Projects**", value=str(len(projects)))
     with col3:
-        st.metric("Degrees", value=2)
+        st.metric("**Degrees**", value=2)
     with col4:
-        st.metric("Awards", value=str(len(awards)))
+        st.metric("**Awards**", value=str(len(awards)))
 
 def sidebar_profile(profile):
     """Render sidebar profile section"""
@@ -81,7 +84,10 @@ def sidebar_contact(profile):
     if profile.get('phone'):
         col1, col2 = st.columns([1, 9])
         with col1:
-            st.markdown("📱")
+            try:
+                st.image("icons/phone.png", width=20)
+            except:
+                st.markdown("📱")
         with col2:
             st.markdown(profile['phone'])
     

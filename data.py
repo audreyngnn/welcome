@@ -98,7 +98,7 @@ PROJECTS = [
         "year": "2024"
     },
     {
-        "name": "BBE Bike Sales Dashboard",
+        "name": "Bike Sales Dashboard",
         "description": "Sales analytics dashboard tracking bike sales performance, revenue metrics, and customer insights with interactive visualizations.",
         "tech": ["Power BI", "DAX", "Sales Analytics"],
         "link": "https://app.powerbi.com/view?r=eyJrIjoiM2I4MjE4MjEtOTc3MC00ZmU3LWJmYjctYjczZTc5YjdkMTc3IiwidCI6IjgyYzUxNGMxLWE3MTctNDA4Ny1iZTA2LWQ0MGQyMDcwYWQ1MiJ9",

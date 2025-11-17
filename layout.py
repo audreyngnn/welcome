@@ -19,11 +19,18 @@ def apply_custom_styles():
         * {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
-       
-        /* Main content area - Clean white background */
+
+        /* Apply cream background EVERYWHERE */
+        .main, 
+        .stApp,
+        [data-testid="stAppViewContainer"],
+        [data-testid="stAppViewBlockContainer"] {
+            background-color: #fdfdf8 !important;
+        }
+
+        /* Main content area - Clean cream background */
         .main {
             padding: 2rem 3rem;
-            background-color: #fdfdf8;
         }
        
         /* ==================== SIDEBAR STYLING ==================== */
@@ -236,12 +243,13 @@ def apply_custom_styles():
         [data-testid="stMetricValue"] {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #1A1A1A;
+            color: #a1b727;  /* Changed from #1A1A1A */
         }
-       
+
         [data-testid="stMetricLabel"] {
-            color: #666666;
-            font-size: 0.9rem;
+            color: #1A1A1A;
+            font-size: 1.2 rem;
+            font-weight: 900;
         }
        
         /* ==================== NAVIGATION ==================== */
@@ -290,8 +298,8 @@ def apply_custom_styles():
        
         /* ==================== EDUCATION & AWARDS ==================== */
         .education-item, .award-item {
-            background: #FAFAFA;
-            border: 1px solid #E5E5E5;
+            background: #fdfdf8;
+            border: 1px solid #d5d4cc;
             padding: 1.25rem;
             margin-bottom: 1rem;
             border-radius: 8px;
@@ -315,8 +323,8 @@ def apply_custom_styles():
        
         /* ==================== ARTICLE CARDS ==================== */
         .article-card {
-            background: #FAFAFA;
-            border: 1px solid #E5E5E5;
+            background: #fdfdf8;
+            border: 1px solid #d5d4cc;
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
@@ -343,8 +351,8 @@ def apply_custom_styles():
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
-            background-color: #FAFAFA;
-            border-top: 1px solid #E5E5E5;
+            background-color: #ecebe3;
+            border-top: 1px solid #d5d4cc;
             border-radius: 8px;
             color: #666666;
         }
@@ -354,7 +362,7 @@ def apply_custom_styles():
             background-color: #e6e6de;
             color: #FFFFFF;
             font-weight: 600;
-            border: none;
+            border: #d5d4cc;
             border-radius: 6px;
             padding: 0.75rem 1rem;
             width: 100%;
@@ -386,6 +394,27 @@ def apply_custom_styles():
         #MainMenu {visibility: visible;}
         footer {visibility: hidden;}
        
+        /* Style Streamlit menu to match cream background */
+        [data-testid="stMainMenu"] {
+            background-color: #fdfdf8 !important;
+        }
+
+        /* Style the menu button itself */
+        [data-testid="stMainMenu"] button {
+            background-color: #fdfdf8 !important;
+            color: #333333 !important;
+        }
+
+        /* Style the dropdown menu when opened */
+        [data-testid="stMainMenu"] > div {
+            background-color: #fdfdf8 !important;
+        }
+
+        /* Header bar background */
+        header[data-testid="stHeader"] {
+            background-color: #fdfdf8 !important;
+        }
+                      
         /* Links */
         a {
             color: #CC785C;
@@ -417,7 +446,7 @@ def apply_custom_styles():
        
         /* ==================== CODE BLOCKS ==================== */
         code {
-            background-color: #F5F5F5;
+            background-color: #ecebe3;
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'IBM Plex Mono', monospace;
@@ -442,7 +471,7 @@ def apply_custom_styles():
         }
        
         th {
-            background-color: #FAFAFA;
+            background-color: #fdfdf8;
             color: #1A1A1A;
             font-weight: 600;
             padding: 0.75rem;

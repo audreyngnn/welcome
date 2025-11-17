@@ -34,7 +34,7 @@ st.set_page_config(
     menu_items={
         "Get help": None,
         "Report a bug": None,
-        "About": "Data Analytics Portfolio by Audrey Nguyen. Built with Streamlit. Master of Business Analytics specializing in Power BI, Python, and ESG frameworks."
+        "About": "Data Analytics Portfolio by Audrey Nguyen. Master of Business Analytics specializing in Power BI, Python, and ESG frameworks."
     }
 )
 
@@ -68,7 +68,7 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
 with tab1:
     st.markdown('<p class="section-header">About Me</p>', unsafe_allow_html=True)
     
-    col1, col2 = st.columns([2, 1])
+    col1, col2 = st.columns([2, 1], gap="large")  # or "small", "medium"
     
     with col1:
         st.markdown("""
@@ -79,7 +79,7 @@ with tab1:
         I bring a comprehensive analytical approach to solving complex business problems.
         """)
         
-        st.markdown("#### What I Do")
+        st.markdown("##### What I Do")
         st.markdown("""
         - Build interactive Power BI dashboards for data-driven decision making
         - Conduct ESG analysis using UN SDG frameworks
