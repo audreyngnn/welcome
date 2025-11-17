@@ -456,6 +456,47 @@ def apply_custom_styles():
         .stMarkdown {
             color: var(--text-secondary);
         }
+
+                /* ==================== HEADER & MENU STYLING ==================== */
+        header[data-testid="stHeader"] {
+            background-color: var(--bg-primary) !important;
+        }
+
+        [data-testid="stMainMenu"] {
+            background-color: var(--bg-primary) !important;
+        }
+
+        [data-testid="stMainMenu"] button {
+            background-color: transparent !important;
+            color: var(--text-secondary) !important;
+        }
+
+        [data-testid="stMainMenu"] button:hover {
+            background-color: var(--bg-secondary) !important;
+            color: var(--accent-primary) !important;
+        }
+
+        /* Force menu icons to be dark in both themes */
+        [data-testid="stMainMenu"] svg {
+            color: #333333 !important;
+            fill: #333333 !important;
+        }
+
+        [data-testid="stMainMenu"] button:hover svg {
+            color: var(--accent-primary) !important;
+            fill: var(--accent-primary) !important;
+        }
+
+        /* Target the three-dot menu specifically */
+        header[data-testid="stHeader"] button svg {
+            color: #333333 !important;
+            fill: #333333 !important;
+        }
+
+        header[data-testid="stHeader"] button:hover svg {
+            color: var(--accent-primary) !important;
+            fill: var(--accent-primary) !important;
+        }
        
         /* ==================== DIVIDERS ==================== */
         hr {
