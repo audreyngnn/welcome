@@ -42,13 +42,37 @@ st.set_page_config(
 apply_custom_styles()
 
 # Mobile Profile Header (only visible on mobile devices)
-st.markdown('''
-    <div class="mobile-profile-container">
-        <img src="profile_photo.jpg" alt="Audrey Nguyen">
-        <h2>Audrey Nguyen</h2>
-        <p>Data Analyst | Sydney, Australia</p>
-    </div>
-''', unsafe_allow_html=True)
+# Using Streamlit's st.image for better compatibility
+import base64
+from pathlib import Path
+
+def get_base64_image(image_path):
+    """Convert image to base64 for mobile display"""
+    try:
+        with open(image_path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode()
+    except:
+        return None
+
+# Get base64 encoded image
+img_base64 = get_base64_image("profile_photo.jpg")
+
+if img_base64:
+    st.markdown(f'''
+        <div class="mobile-profile-container">
+            <img src="data:image/jpeg;base64,{img_base64}" alt="Audrey Nguyen">
+            <h2>Audrey Nguyen</h2>
+            <p>Data Analyst | Sydney, Australia</p>
+        </div>
+    ''', unsafe_allow_html=True)
+else:
+    # Fallback if image doesn't load
+    st.markdown('''
+        <div class="mobile-profile-container">
+            <h2>Audrey Nguyen</h2>
+            <p>Data Analyst | Sydney, Australia</p>
+        </div>
+    ''', unsafe_allow_html=True)
 
 # Sidebar content
 with st.sidebar:

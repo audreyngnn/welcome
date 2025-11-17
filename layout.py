@@ -298,6 +298,130 @@ def apply_custom_styles():
             font-weight: 600;
         }
        
+        /* ==================== PROFILE HEADER COMPONENTS ==================== */
+        .profile-header-container h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+       
+        .profile-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+       
+        .profile-role {
+            color: var(--accent-green);
+        }
+       
+        .profile-location {
+            color: var(--text-secondary);
+        }
+       
+        .profile-tagline {
+            font-size: 1.0rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+       
+        /* ==================== SIDEBAR COMPONENTS ==================== */
+        .sidebar-name {
+            text-align: center;
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+       
+        .sidebar-role {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+       
+        .profile-placeholder {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--accent-primary);
+            margin: 0 auto;
+            border: 3px solid var(--border-color);
+        }
+       
+        /* ==================== EDUCATION & AWARDS DETAIL CLASSES ==================== */
+        .education-school {
+            margin: 0 0 0.25rem 0;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+       
+        .education-period {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+       
+        .education-details {
+            margin: 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+       
+        .award-organization {
+            margin: 0 0 0.25rem 0;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+       
+        .award-details {
+            margin: 0;
+            color: var(--text-tertiary);
+        }
+       
+        /* ==================== ARTICLE CARD CLASSES ==================== */
+        .article-date {
+            margin: 0 0 1rem 0;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+       
+        .article-description {
+            margin: 0 0 1rem 0;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+       
+        /* ==================== FOOTER CLASSES ==================== */
+        .footer h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+       
+        .footer-emoji {
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+       
+        .footer-text {
+            color: var(--text-tertiary);
+            margin-bottom: 0.5rem;
+        }
+       
+        .footer-copyright {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+       
         /* ==================== METRICS ==================== */
         [data-testid="stMetricValue"] {
             font-size: 1.8rem;
@@ -593,6 +717,19 @@ def apply_custom_styles():
                 padding: 1rem !important;
             }
            
+            /* Profile header responsive */
+            .profile-header-container h1 {
+                font-size: 1.8rem !important;
+            }
+           
+            .profile-subtitle {
+                font-size: 1rem !important;
+            }
+           
+            .profile-tagline {
+                font-size: 0.9rem !important;
+            }
+           
             /* Sidebar adjustments */
             [data-testid="stSidebar"] {
                 padding: 1.5rem 0.75rem !important;
@@ -633,6 +770,9 @@ def apply_custom_styles():
                 border: 3px solid var(--border-color);
                 box-shadow: 0 2px 8px rgba(0,0,0,0.08);
                 margin-bottom: 0.75rem;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
             }
            
             .main .mobile-profile-container h2 {
@@ -646,6 +786,24 @@ def apply_custom_styles():
                 font-size: 0.95rem !important;
                 color: var(--text-secondary);
                 margin-bottom: 0;
+            }
+           
+            /* Footer responsive */
+            .footer {
+                padding: 1.5rem 1rem !important;
+                margin-top: 2rem !important;
+            }
+           
+            .footer h3 {
+                font-size: 1.2rem !important;
+            }
+           
+            .footer-emoji {
+                font-size: 1rem !important;
+            }
+           
+            .footer-text, .footer-copyright {
+                font-size: 0.85rem !important;
             }
            
             /* Contact items - stack better on mobile */
@@ -814,6 +972,19 @@ def apply_custom_styles():
                 height: 120px !important;
             }
            
+            /* Profile header extra small */
+            .profile-header-container h1 {
+                font-size: 1.5rem !important;
+            }
+           
+            .profile-subtitle {
+                font-size: 0.9rem !important;
+            }
+           
+            .profile-tagline {
+                font-size: 0.85rem !important;
+            }
+           
             h1 {
                 font-size: 1.5rem !important;
             }
@@ -833,6 +1004,23 @@ def apply_custom_styles():
             .skill-badge {
                 padding: 3px 8px !important;
                 font-size: 0.7rem !important;
+            }
+           
+            /* Footer extra small */
+            .footer {
+                padding: 1rem 0.75rem !important;
+            }
+           
+            .footer h3 {
+                font-size: 1.1rem !important;
+            }
+           
+            .footer-emoji {
+                font-size: 0.9rem !important;
+            }
+           
+            .footer-text, .footer-copyright {
+                font-size: 0.8rem !important;
             }
         }
        

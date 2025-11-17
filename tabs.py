@@ -11,18 +11,20 @@ def skill_chips(items):
     return "".join(f'<span class="skill-badge">{i}</span>' for i in items)
 
 def profile_header(profile):
-    """Render the profile header section"""
+    """Render the profile header section - responsive for mobile"""
     st.markdown(f"""
-        <h1 style='font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #3d3a2a;'>{profile['name']} 🌿 </h1>
-        <p style='font-size: 1.2rem; margin-bottom: 0.25rem;'>
-            <span style='color: #3d5519;'> {profile['role']} </span>
-            <span style='color: #323427;'> • {profile['location']}</span>
-        </p>
-        <p style='font-size: 1.0rem; color: #1A1A1A; margin-bottom: 2rem; line-height: 1.6;'>{profile['tagline']}</p>
+        <div class="profile-header-container">
+            <h1>{profile['name']} 🌿 </h1>
+            <p class="profile-subtitle">
+                <span class="profile-role">{profile['role']}</span>
+                <span class="profile-location"> • {profile['location']}</span>
+            </p>
+            <p class="profile-tagline">{profile['tagline']}</p>
+        </div>
     """, unsafe_allow_html=True)
 
 def quick_stats(projects, education, awards, start_year=2023):
-    """Render quick stats metrics"""
+    """Render quick stats metrics - responsive layout"""
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         years_exp = datetime.now().year - start_year
@@ -44,20 +46,17 @@ def sidebar_profile(profile):
     except:
         st.markdown(f"""
             <div class="profile-container">
-                <div style="width: 200px; height: 200px; border-radius: 50%; 
-                background-color: #F5F5F5; 
-                display: flex; align-items: center; justify-content: center; 
-                font-size: 4rem; color: #CC785C; margin: 0 auto; border: 3px solid #E5E5E5;">
+                <div class="profile-placeholder">
                     {profile['name'][:2]}
                 </div>
             </div>
         """, unsafe_allow_html=True)
     
-    st.markdown(f"<h2 style='text-align: center; margin-top: 0.25rem; margin-bottom: 0.25rem;'>{profile['name']}</h2>", unsafe_allow_html=True)
-    st.markdown(f"<p style='text-align: center; color: #3d3a2a; font-size: 1.2rem; margin-bottom: 0;'>{profile['role']}</p>", unsafe_allow_html=True)
+    st.markdown(f"<h2 class='sidebar-name'>{profile['name']}</h2>", unsafe_allow_html=True)
+    st.markdown(f"<p class='sidebar-role'>{profile['role']}</p>", unsafe_allow_html=True)
 
 def sidebar_contact(profile):
-    """Render sidebar contact information"""
+    """Render sidebar contact information - mobile optimized"""
     st.markdown("<hr>", unsafe_allow_html=True)
     st.markdown("Contact")
     
@@ -112,7 +111,7 @@ def sidebar_contact(profile):
             st.markdown(f"[LinkedIn]({profile['linkedin']})")
 
 def sidebar_filter(skills, experience, projects):
-    """Render sidebar technology filter"""
+    """Render sidebar technology filter - mobile optimized"""
     st.markdown("<hr>", unsafe_allow_html=True)
     st.markdown("Filter")
     
@@ -157,7 +156,7 @@ def sidebar_download_resume():
         st.caption("Add CV_AudreyNguyen.pdf to enable")
 
 def render_experience_card(exp):
-    """Render an experience card"""
+    """Render an experience card - mobile responsive"""
     st.markdown(f"""
     <div class="experience-card">
         <h3>{exp['role']}</h3>
@@ -173,7 +172,7 @@ def render_experience_card(exp):
     st.markdown("<br>", unsafe_allow_html=True)
 
 def render_project_card(project):
-    """Render a project card"""
+    """Render a project card - mobile responsive"""
     # Try to show image first
     if project.get('image'):
         try:
@@ -191,48 +190,48 @@ def render_project_card(project):
     """, unsafe_allow_html=True)
 
 def render_education_item(edu):
-    """Render an education item"""
+    """Render an education item - mobile responsive"""
     st.markdown(f"""
     <div class="education-item">
         <h3>{edu['degree']}</h3>
-        <p style='margin: 0 0 0.25rem 0; color: #333333; font-weight: 500;'>{edu['school']}</p>
-        <p style='margin: 0 0 0.5rem 0; color: #666666; font-size: 0.9rem;'>{edu['period']} • {edu['location']}</p>
-        {f"<p style='margin: 0; color: #333333; font-style: italic;'>{edu['details']}</p>" if edu.get('details') else ""}
+        <p class="education-school">{edu['school']}</p>
+        <p class="education-period">{edu['period']} • {edu['location']}</p>
+        {f"<p class='education-details'>{edu['details']}</p>" if edu.get('details') else ""}
     </div>
     """, unsafe_allow_html=True)
 
 def render_award_item(award):
-    """Render an award item"""
+    """Render an award item - mobile responsive"""
     st.markdown(f"""
     <div class="award-item">
         <h3>🏆 {award['name']}</h3>
-        <p style='margin: 0 0 0.25rem 0; color: #333333; font-weight: 500;'>{award['organization']}</p>
-        {f"<p style='margin: 0; color: #666666;'>{award['details']}</p>" if award.get('details') else ""}
+        <p class="award-organization">{award['organization']}</p>
+        {f"<p class='award-details'>{award['details']}</p>" if award.get('details') else ""}
     </div>
     """, unsafe_allow_html=True)
 
 def render_article_card(article):
-    """Render an article card"""
+    """Render an article card - mobile responsive"""
     st.markdown(f"""
     <div class="article-card">
         <h3>{article['title']}</h3>
-        <p style='margin: 0 0 1rem 0; color: #666666; font-size: 0.9rem;'>📅 {article['date']}</p>
-        <p style='margin: 0 0 1rem 0; color: #333333; line-height: 1.6;'>{article['description']}</p>
+        <p class="article-date">📅 {article['date']}</p>
+        <p class="article-description">{article['description']}</p>
         {'<a class="simple-btn" href="' + article['link'] + '" target="_blank">Read Article →</a>' if article.get('link') else ''}
     </div>
     """, unsafe_allow_html=True)
 
 def render_footer():
-    """Render footer section"""
+    """Render footer section - mobile responsive"""
     st.markdown("<br><br>", unsafe_allow_html=True)
     st.markdown("""
     <div class="footer">
-        <h3 style='color: #1A1A1A; margin-bottom: 0.75rem; font-weight: 600;'>Let's Connect</h3>
-        <p style='text-align: center; font-size: 1.2rem; margin: 0.5rem 0;'>𓆝 𓆟 𓆞 𓆝 𓆟</p>
-        <p style='color: #666666; margin-bottom: 0.5rem;'>
+        <h3>Let's Connect</h3>
+        <p class="footer-emoji">𓆝 𓆟 𓆞 𓆝 𓆟</p>
+        <p class="footer-text">
             Interested in working together? Feel free to reach out.
         </p>
-        <p style='color: #999999; font-size: 0.9rem;'>
+        <p class="footer-copyright">
             © 2025 Audrey Nguyen • Built with passion ✦
         </p>
     </div>
