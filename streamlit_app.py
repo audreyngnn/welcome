@@ -41,6 +41,15 @@ st.set_page_config(
 # Apply custom styling
 apply_custom_styles()
 
+# Mobile Profile Header (only visible on mobile devices)
+st.markdown('''
+    <div class="mobile-profile-container">
+        <img src="profile_photo.jpg" alt="Audrey Nguyen">
+        <h2>Audrey Nguyen</h2>
+        <p>Data Analyst | Sydney, Australia</p>
+    </div>
+''', unsafe_allow_html=True)
+
 # Sidebar content
 with st.sidebar:
     sidebar_profile(PROFILE)

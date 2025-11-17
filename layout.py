@@ -581,6 +581,11 @@ def apply_custom_styles():
             padding: 1rem;
         }
        
+        /* Hide mobile profile container on desktop */
+        .mobile-profile-container {
+            display: none;
+        }
+       
         /* ==================== MOBILE RESPONSIVE STYLES ==================== */
         @media only screen and (max-width: 768px) {
             /* Main content padding */
@@ -605,10 +610,42 @@ def apply_custom_styles():
                 font-size: 0.8rem !important;
             }
            
-            /* Profile image - smaller on mobile */
-            .profile-container img {
-                width: 150px !important;
-                height: 150px !important;
+            /* HIDE profile photo in sidebar on mobile */
+            [data-testid="stSidebar"] .profile-container {
+                display: none !important;
+            }
+           
+            /* SHOW profile photo in main content on mobile */
+            .main .mobile-profile-container {
+                display: block !important;
+                text-align: center;
+                margin-bottom: 1.5rem;
+                padding: 1rem;
+                background-color: var(--bg-card);
+                border: 1px solid var(--border-color);
+                border-radius: 12px;
+            }
+           
+            .main .mobile-profile-container img {
+                width: 120px !important;
+                height: 120px !important;
+                border-radius: 50%;
+                border: 3px solid var(--border-color);
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                margin-bottom: 0.75rem;
+            }
+           
+            .main .mobile-profile-container h2 {
+                font-size: 1.5rem !important;
+                font-weight: 700;
+                color: var(--text-primary);
+                margin-bottom: 0.25rem;
+            }
+           
+            .main .mobile-profile-container p {
+                font-size: 0.95rem !important;
+                color: var(--text-secondary);
+                margin-bottom: 0;
             }
            
             /* Contact items - stack better on mobile */
