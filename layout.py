@@ -606,6 +606,22 @@ def apply_custom_styles():
        
         /* ==================== STREAMLIT OVERRIDES ==================== */
         footer {visibility: hidden;}
+        
+        /* Hide Streamlit main menu (hamburger menu) */
+        #MainMenu {visibility: hidden;}
+        
+        [data-testid="stMainMenu"] {
+            display: none !important;
+        }
+        
+        header[data-testid="stHeader"] {
+            display: none !important;
+        }
+        
+        /* Alternative: If above doesn't work, use this */
+        .css-18e3th9 {
+            display: none !important;
+        }
        
         /* Links */
         a {
