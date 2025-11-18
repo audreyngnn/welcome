@@ -111,32 +111,98 @@ def sidebar_contact(profile):
             st.markdown(f"[LinkedIn]({profile['linkedin']})")
 
 def sidebar_filter(skills, experience, projects):
-    """Render sidebar technology filter - mobile optimized"""
+    """Render sidebar technology and domain skill filters with interactive dropdowns"""
     st.markdown("<hr>", unsafe_allow_html=True)
-    st.markdown("Filter")
+    
+    # TECHNOLOGIES SECTION
+    st.markdown("### Technologies")
     
     # Collect all technologies
-    tech = set()
+    all_tech = set()
     for e in experience:
-        tech.update(e.get("tech", []))
+        all_tech.update(e.get("tech", []))
     for p in projects:
-        tech.update(p.get("tech", []))
+        all_tech.update(p.get("tech", []))
     for s in skills:
-        tech.add(s['name'])
-        for k in s.get("keywords", []):
-            tech.add(k)
+        all_tech.add(s['name'])
     
-    all_tech = sorted(tech)
-    selected = st.selectbox(
-        "Select technology",
-        options=["All Technologies"] + all_tech,
+    # Featured technologies to display
+    featured_tech = ["Power BI", "Excel", "SQL Server", "Tableau", "Python"]
+    
+    # Filter to only show featured tech that exists in the data
+    # Also handle variations like "SQL Server" vs "SQL"
+    display_tech = []
+    for tech in featured_tech:
+        if tech in all_tech:
+            display_tech.append(tech)
+        elif tech == "SQL Server":
+            # Check for SQL Server specifically
+            if "SQL Server" in all_tech:
+                display_tech.append("SQL Server")
+    
+    # All tech for dropdown (sorted)
+    all_tech_sorted = sorted(all_tech)
+    
+    # Technology filter dropdown (includes all tech)
+    selected_tech = st.selectbox(
+        "Filter by technology",
+        options=["All Technologies"] + all_tech_sorted,
+        key="tech_filter",
         label_visibility="collapsed"
     )
     
-    if selected != "All Technologies":
-        st.session_state['filters'] = {selected}
+    # Display only featured tech chips
+    if display_tech:
+        tech_chips = "".join(f'<span class="filter-chip-tech">{t}</span>' for t in display_tech)
+        st.markdown(tech_chips, unsafe_allow_html=True)
+    
+    # Update session state for tech filter
+    if selected_tech != "All Technologies":
+        st.session_state['tech_filter_value'] = selected_tech
     else:
-        st.session_state['filters'] = set()
+        st.session_state['tech_filter_value'] = None
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # DOMAIN SKILLS SECTION
+    st.markdown("### Domain Skills")
+    
+    # Collect all domain skills
+    all_domain_skills = set()
+    for s in skills:
+        all_domain_skills.update(s.get("keywords", []))
+    for e in experience:
+        all_domain_skills.update(e.get("domain", []))
+    for p in projects:
+        all_domain_skills.update(p.get("domain", []))
+    
+    # Featured domain skills to display
+    featured_domains = ["E-Commerce Analysis", "ESG Analysis", "Financial Analysis"]
+    
+    # Filter to only show featured domains that exist in the data
+    display_domains = [d for d in featured_domains if d in all_domain_skills]
+    
+    # All domains for dropdown (sorted)
+    all_domains_sorted = sorted(all_domain_skills)
+    
+    # Domain filter dropdown (includes all domains)
+    selected_domain = st.selectbox(
+        "Filter by domain skill",
+        options=["All Domain Skills"] + all_domains_sorted,
+        key="domain_filter",
+        label_visibility="collapsed"
+    )
+    
+    # Display only featured domain skill chips
+    if display_domains:
+        skill_chips_html = "".join(f'<span class="filter-chip-skill">{s}</span>' for s in display_domains)
+        st.markdown(skill_chips_html, unsafe_allow_html=True)
+    
+    # Update session state for domain filter
+    if selected_domain != "All Domain Skills":
+        st.session_state['domain_filter_value'] = selected_domain
+    else:
+        st.session_state['domain_filter_value'] = None
 
 def sidebar_download_resume():
     """Render download resume button"""

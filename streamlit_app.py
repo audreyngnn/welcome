@@ -23,8 +23,10 @@ from tabs import (
 )
 
 # Initialize session state
-if "filters" not in st.session_state:
-    st.session_state.filters = set()
+if 'tech_filter_value' not in st.session_state:
+    st.session_state['tech_filter_value'] = None
+if 'domain_filter_value' not in st.session_state:
+    st.session_state['domain_filter_value'] = None
 
 # PAGE SETUP
 st.set_page_config(
@@ -98,11 +100,37 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "✍️ Articles"
 ])
 
+# Helper function to check if item matches filters
+def matches_filters(item):
+    """Check if an item matches the current tech and domain filters"""
+    tech_filter = st.session_state.get('tech_filter_value')
+    domain_filter = st.session_state.get('domain_filter_value')
+    
+    # If no filters, show everything
+    if not tech_filter and not domain_filter:
+        return True
+    
+    tech_match = True
+    domain_match = True
+    
+    # Check tech filter
+    if tech_filter:
+        item_tech = item.get('tech', [])
+        tech_match = tech_filter in item_tech
+    
+    # Check domain filter
+    if domain_filter:
+        item_domain = item.get('domain', [])
+        domain_match = domain_filter in item_domain
+    
+    # Item must match both filters (if both are set)
+    return tech_match and domain_match
+
 # TAB 1: About Me
 with tab1:
     st.markdown('<p class="section-header">About Me</p>', unsafe_allow_html=True)
     
-    col1, col2 = st.columns([2, 1], gap="large")  # or "small", "medium"
+    col1, col2 = st.columns([2, 1], gap="large")
     
     with col1:
         st.markdown("""
@@ -137,32 +165,32 @@ with tab1:
 with tab2:
     st.markdown('<p class="section-header">Professional Experience</p>', unsafe_allow_html=True)
     
-    filters = st.session_state.get("filters", set())
+    # Filter experiences
+    filtered_experiences = [exp for exp in EXPERIENCE if matches_filters(exp)]
     
-    for exp in EXPERIENCE:
-        if filters and not (filters & set(exp.get("tech", []))):
-            continue
-        render_experience_card(exp)
+    if filtered_experiences:
+        for exp in filtered_experiences:
+            render_experience_card(exp)
+    else:
+        st.info("No experiences match the selected filters. Try adjusting your filter selections.")
 
 # TAB 3: Projects
 with tab3:
     st.markdown('<p class="section-header">Featured Projects</p>', unsafe_allow_html=True)
     
-    filters = st.session_state.get("filters", set())
+    # Filter projects
+    filtered_projects = [proj for proj in PROJECTS if matches_filters(proj)]
     
-    filtered_projects = []
-    for p in PROJECTS:
-        if filters and not (filters & set(p.get("tech", []))):
-            continue
-        filtered_projects.append(p)
-    
-    for i in range(0, len(filtered_projects), 2):
-        cols = st.columns(2)
-        for j, col in enumerate(cols):
-            if i + j < len(filtered_projects):
-                p = filtered_projects[i + j]
-                with col:
-                    render_project_card(p)
+    if filtered_projects:
+        for i in range(0, len(filtered_projects), 2):
+            cols = st.columns(2)
+            for j, col in enumerate(cols):
+                if i + j < len(filtered_projects):
+                    p = filtered_projects[i + j]
+                    with col:
+                        render_project_card(p)
+    else:
+        st.info("No projects match the selected filters. Try adjusting your filter selections.")
 
 # TAB 4: Skills
 with tab4:

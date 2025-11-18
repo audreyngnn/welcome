@@ -227,6 +227,49 @@ def apply_custom_styles():
             color: var(--accent-primary);
         }
        
+        /* ==================== FILTER CHIPS ==================== */
+        .filter-chip-tech {
+            display: inline-block;
+            padding: 6px 14px;
+            margin: 4px 4px 4px 0;
+            background-color: #E3F2FD;
+            color: #1565C0;
+            border: 1px solid #90CAF9;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .filter-chip-tech:hover {
+            background-color: #BBDEFB;
+            border-color: #1565C0;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(21, 101, 192, 0.2);
+        }
+        
+        .filter-chip-skill {
+            display: inline-block;
+            padding: 6px 14px;
+            margin: 4px 4px 4px 0;
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .filter-chip-skill:hover {
+            background-color: var(--bg-hover);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-1px);
+        }
+        
         /* ==================== PROJECT CARDS ==================== */
         .project-card {
             background: var(--bg-card);
@@ -644,25 +687,6 @@ def apply_custom_styles():
             color: var(--text-secondary);
         }
 
-        /* ==================== HEADER & MENU STYLING ==================== */
-        header[data-testid="stHeader"] {
-            background-color: var(--bg-primary) !important;
-        }
-
-        [data-testid="stMainMenu"] {
-            background-color: var(--bg-primary) !important;
-        }
-
-        [data-testid="stMainMenu"] button {
-            background-color: transparent !important;
-            color: var(--text-secondary) !important;
-        }
-
-        [data-testid="stMainMenu"] button:hover {
-            background-color: var(--bg-secondary) !important;
-            color: var(--accent-primary) !important;
-        }
-
         /* Force menu icons to be dark in both themes */
         [data-testid="stMainMenu"] svg {
             color: #333333 !important;
@@ -885,6 +909,14 @@ def apply_custom_styles():
                 font-size: 0.75rem !important;
             }
            
+            /* Filter chips - smaller on mobile */
+            .filter-chip-tech,
+            .filter-chip-skill {
+                padding: 4px 10px !important;
+                margin: 3px 3px 3px 0 !important;
+                font-size: 0.75rem !important;
+            }
+           
             /* Buttons */
             .simple-btn {
                 padding: 8px 16px !important;
@@ -953,12 +985,6 @@ def apply_custom_styles():
            
             [data-testid="stMetricLabel"] {
                 font-size: 0.95rem !important;
-            }
-           
-            /* Footer */
-            .footer {
-                padding: 1.5rem 1rem !important;
-                margin-top: 2rem !important;
             }
            
             /* Tables - make them scrollable on mobile */
@@ -1035,7 +1061,9 @@ def apply_custom_styles():
                 padding: 0.75rem !important;
             }
            
-            .skill-badge {
+            .skill-badge,
+            .filter-chip-tech,
+            .filter-chip-skill {
                 padding: 3px 8px !important;
                 font-size: 0.7rem !important;
             }
