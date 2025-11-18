@@ -208,6 +208,11 @@ def apply_custom_styles():
         }
             
         /* ==================== SKILL BADGES ==================== */
+        /* Skills category headers */
+        .stMarkdown h3 {
+            font-size: 1.4rem;
+        }
+                
         .skill-badge {
             display: inline-block;
             padding: 6px 14px;
@@ -423,6 +428,11 @@ def apply_custom_styles():
         }
        
         /* ==================== EDUCATION & AWARDS DETAIL CLASSES ==================== */
+        .education-item h3,
+        .award-item h3 {
+            font-size: 1.4rem;
+        }
+                
         .education-school {
             margin: 0 0 0.25rem 0;
             color: var(--text-secondary);
@@ -453,6 +463,10 @@ def apply_custom_styles():
         }
        
         /* ==================== ARTICLE CARD CLASSES ==================== */
+        .article-item h3,{
+            font-size: 1.4rem;
+        }
+                
         .article-date {
             margin: 0 0 1rem 0;
             color: var(--text-tertiary);
