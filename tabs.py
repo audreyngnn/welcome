@@ -41,7 +41,7 @@ def sidebar_profile(profile):
     # Profile photo
     try:
         st.markdown('<div class="profile-container">', unsafe_allow_html=True)
-        st.image("profile_photo.jpg", width=222)
+        st.image("profile_photo.jpg", use_container_width=True)  # Changed from width=300
         st.markdown('</div>', unsafe_allow_html=True)
     except:
         st.markdown(f"""

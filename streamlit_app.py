@@ -88,7 +88,7 @@ with st.sidebar:
 profile_header(PROFILE)
 quick_stats(PROJECTS, EDUCATION, AWARDS)
 
-st.markdown("<hr style='margin: 2rem 0; border: none; border-top: 1px solid #E5E5E5;'>", unsafe_allow_html=True)
+st.markdown("<hr style='margin: 1rem 0; border: none; border-top: 1px solid #E5E5E5;'>", unsafe_allow_html=True)
 
 # Horizontal tabs in main content
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
