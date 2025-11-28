@@ -239,7 +239,12 @@ def render_experience_card(exp):
 
 def render_project_card(project):
     """Render a project card - mobile responsive"""
-    # Try to show image first
+    st.markdown(f"""
+    <div class="project-card">
+        <h3>{project['name']}</h3>
+    """, unsafe_allow_html=True)
+    
+    # Try to show image inside the card
     if project.get('image'):
         try:
             st.image(project['image'], use_container_width=True)
@@ -247,8 +252,6 @@ def render_project_card(project):
             pass
     
     st.markdown(f"""
-    <div class="project-card">
-        <h3>{project['name']}</h3>
         <p>{project['description']}</p>
         <div style='margin: 1rem 0;'>{skill_chips(project.get('tech', []))}</div>
         {'<a class="simple-btn" href="' + project['link'] + '" target="_blank">View Project →</a>' if project.get('link') else ''}
