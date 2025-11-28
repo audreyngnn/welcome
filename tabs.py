@@ -239,25 +239,16 @@ def render_experience_card(exp):
 
 def render_project_card(project):
     """Render a project card - mobile responsive"""
-    # Build image HTML if image exists, otherwise show placeholder
-    image_html = ""
+    # Try to show image first
     if project.get('image'):
-        import os
-        if os.path.exists(project['image']):
-            image_html = f'<img src="{project["image"]}" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">'
-        else:
-            # Placeholder when image not found
-            image_html = '''
-            <div style="width: 100%; padding: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; margin-bottom: 1rem; text-align: center;">
-                <div style="font-size: 3rem; opacity: 0.8;">📊 💼 📈</div>
-            </div>
-            '''
+        try:
+            st.image(project['image'], use_container_width=True)
+        except:
+            pass
     
-    # Render everything in one HTML block
     st.markdown(f"""
     <div class="project-card">
         <h3>{project['name']}</h3>
-        {image_html}
         <p>{project['description']}</p>
         <div style='margin: 1rem 0;'>{skill_chips(project.get('tech', []))}</div>
         {'<a class="simple-btn" href="' + project['link'] + '" target="_blank">View Project →</a>' if project.get('link') else ''}
