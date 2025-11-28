@@ -239,24 +239,28 @@ def render_experience_card(exp):
 
 def render_project_card(project):
     """Render a project card - mobile responsive"""
-    st.markdown(f"""
-    <div class="project-card">
-        <h3>{project['name']}</h3>
-    """, unsafe_allow_html=True)
+    # Create container div
+    st.markdown('<div class="project-card">', unsafe_allow_html=True)
     
-    # Try to show image inside the card
+    # Title
+    st.markdown(f"<h3>{project['name']}</h3>", unsafe_allow_html=True)
+    
+    # Image inside the card
     if project.get('image'):
         try:
             st.image(project['image'], use_container_width=True)
         except:
             pass
     
+    # Description, tech stack, and button
     st.markdown(f"""
         <p>{project['description']}</p>
         <div style='margin: 1rem 0;'>{skill_chips(project.get('tech', []))}</div>
         {'<a class="simple-btn" href="' + project['link'] + '" target="_blank">View Project →</a>' if project.get('link') else ''}
-    </div>
     """, unsafe_allow_html=True)
+    
+    # Close container div
+    st.markdown('</div>', unsafe_allow_html=True)
 
 def render_education_item(edu):
     """Render an education item - mobile responsive"""
