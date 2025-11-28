@@ -58,7 +58,7 @@ EXPERIENCE = [
         "period": "Jan 2023 – Jul 2023",
         "location": "Sydney, NSW",
         "highlights": [
-            "Involved in 134 financial loss claim assessments, including business interruption and stock loss policies",
+            "Analyzed 134 financial loss claim assessments, including business interruption and stock loss policies",
             "Communicated with insured parties, insurers, and third-party representatives to gather case-specific data",
             "Validated claim information through detailed review of financial documentation and supporting evidence",
             "Presented data-driven financial analyses to support accurate claim assessment and settlement determination",
