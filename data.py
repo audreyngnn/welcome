@@ -36,7 +36,7 @@ EXPERIENCE = [
             "Conducted data-driven research on digital customer experience, measuring conversion rates and user interaction with AR/VR features",
         ],
         "tech": ["Machine Learning"],
-        "domain": ["E-commerce Analytics", "Academic Research", "User Engagement Metrics"]
+        "domain": ["E-commerce Analytics", "Academic Research"]
     },
 
     {
@@ -49,8 +49,8 @@ EXPERIENCE = [
             "Data analysis by working with collected parking metrics, creating actionable insights for urban planning initiatives",
             "Achievement: Contributed to nine projects by delivering high-impact data records to city stakeholders",
         ],
-        "tech": ["Excel"],
-        "domain": ["Urban Planning", "Survey Data", "Parking Analytics", "Stakeholder Communication"],
+        "tech": ["Advanced Excel"],
+        "domain": ["Urban Planning", "Parking Analytics", "Stakeholder Communication"],
     },
     {
         "role": "Financial Analyst",
@@ -80,7 +80,7 @@ EXPERIENCE = [
             "Achievement: Doubled application volume and employee turnover reduced by 83% (vs. previous year)",
         ],
         "tech": ["Excel"],
-        "domain": ["Process Optimization", "Performance Analysis", "Project Management", "Stakeholder Communication"]
+        "domain": ["Process Optimization", "HR Analysis", "Project Management", "Stakeholder Communication"]
     },
     {
         "role": "Mentor & Guest Speaker",
