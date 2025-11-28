@@ -239,21 +239,16 @@ def render_experience_card(exp):
 
 def render_project_card(project):
     """Render a project card - mobile responsive"""
-    # Start the card
+    # Build image HTML if image exists
+    image_html = ""
+    if project.get('image'):
+        image_html = f'<img src="{project["image"]}" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">'
+    
+    # Render everything in one HTML block
     st.markdown(f"""
     <div class="project-card">
         <h3>{project['name']}</h3>
-    """, unsafe_allow_html=True)
-    
-    # Add image using st.image (works better with local files)
-    if project.get('image'):
-        try:
-            st.image(project['image'], use_container_width=True)
-        except Exception as e:
-            st.warning(f"Could not load image: {project['image']}")
-    
-    # Continue with description and other content
-    st.markdown(f"""
+        {image_html}
         <p>{project['description']}</p>
         <div style='margin: 1rem 0;'>{skill_chips(project.get('tech', []))}</div>
         {'<a class="simple-btn" href="' + project['link'] + '" target="_blank">View Project →</a>' if project.get('link') else ''}
