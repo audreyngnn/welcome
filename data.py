@@ -99,11 +99,11 @@ EXPERIENCE = [
 
 PROJECTS = [
     {
-        "name": "Powering Tomorrow: Tracking Global Progress on SDG 7 (2000–2022)",
+        "name": "UN SDG 7: A Global Energy Story (2000–2022)",
         "description": "An interactive Power BI dashboard visualising global progress toward UN SDG 7 (Affordable and Clean Energy) from 2000–2022, highlighting trends in electricity access, clean cooking, and renewable energy adoption.",
         "tech": ["Power BI", "DAX", "Microsoft Fabric", "Data Modelling", "Data Cleaning"],
         "domain": ["ESG Analysis", "UN SDG"],
-        "link": "https://app.powerbi.com/view?r=eyJrIjoiNzQ1OGYxMDYtY2Y5ZS00ZDg0LTg5MTQtMjgyNGEzZTZhNjcxIiwidCI6IjgyYzUxNGMxLWE3MTctNDA4Ny1iZTA2LWQ0MGQyMDcwYWQ1MiJ9",
+        "link": "https://app.powerbi.com/view?r=eyJrIjoiMGIwODZiNmEtN2FmNS00OTMwLWE2MDYtZTZiYzA0NDE2ODhhIiwidCI6IjgyYzUxNGMxLWE3MTctNDA4Ny1iZTA2LWQ0MGQyMDcwYWQ1MiJ9",
         "image": "images/sdg7_cover.jpg",
         "year": "2025"
     },
@@ -117,12 +117,30 @@ PROJECTS = [
         "year": "2024"
     },
     {
-        "name": "Bike Sales Dashboard",
-        "description": "Sales analytics dashboard tracking bike sales performance, revenue metrics, and customer insights with interactive visualizations.",
-        "tech": ["Power BI", "DAX", "Data Modelling", "Data Cleaning"],
-        "domain": ["Sales Analytics", "Retail Analysis"],
-        "link": "https://app.powerbi.com/view?r=eyJrIjoiM2I4MjE4MjEtOTc3MC00ZmU3LWJmYjctYjczZTc5YjdkMTc3IiwidCI6IjgyYzUxNGMxLWE3MTctNDA4Ny1iZTA2LWQ0MGQyMDcwYWQ1MiJ9",
-        "image": "images/bike_sales_cover.jpg",
+        "name": "Global Earthquake Risk Analysis",
+        "description": "This analysis transforms earthquake data into actionable emergency management strategies.",
+        "tech": ["Tableau", "Dashboard"],
+        "domain": ["Risk Analytics"],
+        "link": "https://github.com/audreyngnn/Tableau-Project-1",
+        "image": "images/earthquake_cover.jpg",
+        "year": "2024"
+    },
+    {
+        "name": "Australian Road Death Analysis (2010-2024)",
+        "description": "Analyzed Australian road fatalities (2010-2024) using three R visualizations to identify temporal patterns, high-risk demographics, and policy effectiveness toward the 2030 target.",
+        "tech": ["R", "Dashboard"],
+        "domain": ["Risk Analytics"],
+        "link": "https://github.com/audreyngnn/R-Project-1",
+        "image": "images/road_cover.jpg",
+        "year": "2024"
+    },
+    {
+        "name": "Predictive Analytics: AirBnb Pricing in Melbourne",
+        "description": "This project focuses on building a machine learning model to predict the price of Airbnb listings in Melbourne based on property and host features. The model was trained on historical data and applied to unseen listings, with the aim of achieving high predictive accuracy.",
+        "tech": ["Python", "Machine Learning", "Feature Engineering"],
+        "domain": ["Predictive Analytics", "Price Analytics"],
+        "link": "https://github.com/audreyngnn/Python-Project-1",
+        "image": "images/airbnb.jpg",
         "year": "2024"
     },
     {
