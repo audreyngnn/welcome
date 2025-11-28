@@ -239,31 +239,30 @@ def render_experience_card(exp):
 
 def render_project_card(project):
     """Render a project card - mobile responsive"""
-    # Use container to create visual grouping
-    with st.container():
-        st.markdown(f"""
-        <div class="project-card" style="padding: 0;">
-            <div style="padding: 1.5rem 1.5rem 0 1.5rem;">
-                <h3 style="margin-top: 0;">{project['name']}</h3>
+    # Build image HTML if image exists, otherwise show placeholder
+    image_html = ""
+    if project.get('image'):
+        import os
+        if os.path.exists(project['image']):
+            image_html = f'<img src="{project["image"]}" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">'
+        else:
+            # Placeholder when image not found
+            image_html = '''
+            <div style="width: 100%; padding: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; margin-bottom: 1rem; text-align: center;">
+                <div style="font-size: 3rem; opacity: 0.8;">📊 💼 📈</div>
             </div>
-        """, unsafe_allow_html=True)
-        
-        # Add image using st.image (works better with local files)
-        if project.get('image'):
-            try:
-                st.image(project['image'], use_container_width=True)
-            except Exception as e:
-                st.markdown(f'<div style="padding: 0 1.5rem;"><p style="color: #888;">Image not found</p></div>', unsafe_allow_html=True)
-        
-        # Continue with description and other content
-        st.markdown(f"""
-            <div style="padding: 0 1.5rem 1.5rem 1.5rem;">
-                <p>{project['description']}</p>
-                <div style='margin: 1rem 0;'>{skill_chips(project.get('tech', []))}</div>
-                {'<a class="simple-btn" href="' + project['link'] + '" target="_blank">View Project →</a>' if project.get('link') else ''}
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+            '''
+    
+    # Render everything in one HTML block
+    st.markdown(f"""
+    <div class="project-card">
+        <h3>{project['name']}</h3>
+        {image_html}
+        <p>{project['description']}</p>
+        <div style='margin: 1rem 0;'>{skill_chips(project.get('tech', []))}</div>
+        {'<a class="simple-btn" href="' + project['link'] + '" target="_blank">View Project →</a>' if project.get('link') else ''}
+    </div>
+    """, unsafe_allow_html=True)
 
 def render_education_item(edu):
     """Render an education item - mobile responsive"""
