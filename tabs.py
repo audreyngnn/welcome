@@ -222,7 +222,8 @@ def sidebar_download_resume():
         st.caption("Add CV_AudreyNguyen.pdf to enable")
 
 def render_experience_card(exp):
-    """Render an experience card - mobile responsive"""
+    """Render an experience card styled like Audrey's CV"""
+    
     st.markdown(f"""
     <div class="experience-card">
         <h3>{exp['role']}</h3>
@@ -230,11 +231,31 @@ def render_experience_card(exp):
         <p class="period">{exp['period']} • {exp.get('location', '')}</p>
     </div>
     """, unsafe_allow_html=True)
-    
-    for highlight in exp['highlights']:
-        st.markdown(f"• {highlight}")
-    
-    st.markdown("<div style='margin-top: 0.75rem;'>" + skill_chips(exp.get('tech', [])) + "</div>", unsafe_allow_html=True)
+
+    # Description (first line)
+    if exp.get("description"):
+        st.markdown(exp["description"])
+
+    # Bullet highlights
+    for h in exp["highlights"]:
+        st.markdown(f"• {h}")
+
+    # Achievement
+    if exp.get("achievement"):
+        st.markdown(f"– **Achievement:** {exp['achievement']}")
+
+    # Highlighted Projects
+    if exp.get("projects"):
+        st.markdown(f"– **Highlighted Projects:** {exp['projects']}")
+
+    # Skill chips
+    st.markdown(
+        "<div style='margin-top: 0.75rem;'>" + 
+        skill_chips(exp.get("tech", [])) + 
+        "</div>", 
+        unsafe_allow_html=True
+    )
+
     st.markdown("<br>", unsafe_allow_html=True)
 
 def render_project_card(project):

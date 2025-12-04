@@ -31,71 +31,81 @@ EXPERIENCE = [
         "company": "Macquarie University",
         "period": "Jan 2025 – Oct 2025",
         "location": "Sydney, NSW",
+        "description": "Analyzed how customers perceive virtual try-on technology and its impact on digital shopping behavior",
         "highlights": [
-            "Analyzed how customers perceive virtual try-on technology and its impact on digital shopping behavior",
-            "– Analyzed engagement and conversion patterns in AR/VR virtual try-on environments to understand customer perceptions",
-            "– Researched VTO model advancements and realism to assess their impact on digital retail experiences",
-            "– Summarized findings into clear reports supporting product optimization and research direction"
+            "Analyzed engagement and conversion patterns in AR/VR virtual try-on environments to understand customer perceptions",
+            "Researched VTO model advancements and realism to assess their impact on digital retail experiences",
+            "Summarized findings into clear reports supporting product optimization and research direction"
         ],
+        "achievement": None,
+        "projects": None,
         "tech": ["Machine Learning", "AR/VR Analytics"],
         "domain": ["E-commerce Analytics", "Academic Research", "Virtual Try-On Technology"]
     },
+
     {
         "role": "Data Analyst",
         "company": "Ptc. Consulting",
         "period": "Jun 2023 – Dec 2024",
         "location": "Sydney, NSW",
+        "description": "Delivered insights that informed nine urban planning and strategic infrastructure initiatives",
         "highlights": [
-            "Delivered insights that informed nine urban planning and strategic infrastructure initiatives",
-            "– Collected and validated survey data, transforming raw datasets into clear, data-informed recommendations supporting project strategy and stakeholder alignment",
-            "– Analyzed behavioral trends to identify patterns in customer movement, peak demand, and infrastructure use",
-            "– Produced concise reports for councils and business partners to support their decision-making",
-            "Highlighted Projects: Wollongong City Council Parking Strategy, Harbourside Car Park, Bonnyrigg Plaza, Deepwater Plaza, Landmark Building (St Leonards)"
+            "Collected and validated survey data, transforming raw datasets into data-informed recommendations",
+            "Analyzed behavioral trends to identify patterns in customer movement, peak demand, and infrastructure use",
+            "Produced concise reports for councils and business partners to support decision-making"
         ],
+        "achievement": None,
+        "projects": "Wollongong City Council Parking Strategy, Harbourside Car Park, Bonnyrigg Plaza, Deepwater Plaza, Landmark Building (St Leonards)",
         "tech": ["Advanced Excel", "Survey Data Analysis"],
         "domain": ["Urban Planning", "Infrastructure Analytics", "Stakeholder Communication"]
     },
+
     {
         "role": "Financial Analyst",
         "company": "Crawford and Company",
         "period": "Jan 2023 – Jun 2023",
         "location": "Sydney, NSW",
+        "description": "Assessed 134 financial loss claims by analyzing operational patterns and key business performance drivers",
         "highlights": [
-            "Assessed 134 financial loss claims by analyzing operational patterns and key business performance drivers",
-            "– Collaborated cross-functionally with insurers, clients, and stakeholders to gather case-specific data and ensure accuracy of inputs",
-            "– Developed insight-driven analyses supporting fair and evidence-based business interruption settlements",
-            "– Produced detailed reports calculating methodology, financial modeling outcomes, and final recommendations",
-            "Achievement: Generated ~$56,780 in company revenue",
-            "Highlighted Projects: McDonald's (2022 flood interruption), Sydney Opera House (COVID-19 interruption)"
+            "Collaborated cross-functionally with insurers, clients, and stakeholders to gather accurate case data",
+            "Developed insight-driven analyses supporting fair and evidence-based business interruption settlements",
+            "Produced detailed reports including methodology, financial modelling outcomes, and recommendations"
         ],
+        "achievement": "Generated ~$56,780 in company revenue",
+        "projects": "McDonald's (2022 flood interruption), Sydney Opera House (COVID-19 interruption)",
         "tech": ["Excel", "Financial Modeling"],
         "domain": ["Financial Analysis", "Forensic Accounting", "Claim Investigation", "Stakeholder Communication"]
     },
+
     {
         "role": "Operations Manager",
         "company": "UAVS-NSW",
         "period": "Mar 2020 – Dec 2021",
         "location": "Sydney, NSW",
+        "description": "Led operational strategy and performance optimization across multiple concurrent projects",
         "highlights": [
-            "Led operational strategy and performance optimization across multiple concurrent projects",
-            "– Analyzed workflow, performance metrics, and operational bottlenecks to drive process optimization",
-            "– Coordinated cross-functional teams to ensure alignment, resource allocation, and timely execution of project deliverables",
-            "– Leveraged data insights to identify training needs and support capability-building initiatives",
-            "Achievement: Doubled application volume and reduced employee turnover by 83%"
+            "Analyzed workflow, performance metrics, and operational bottlenecks to drive process optimization",
+            "Coordinated cross-functional teams to ensure alignment and timely project execution",
+            "Leveraged data insights to identify training needs and support capability-building initiatives"
         ],
+        "achievement": "Doubled application volume and reduced employee turnover by 83%",
+        "projects": None,
         "tech": ["Excel", "Process Analytics"],
         "domain": ["Process Optimization", "HR Analysis", "Project Management", "Stakeholder Communication"]
     },
+
     {
         "role": "Mentor & Guest Speaker",
         "company": "RISE UP Competition (AVLD)",
         "period": "Jun 2022",
         "location": "Vietnam",
+        "description": None,
         "highlights": [
-            "– Delivered ESG/SDG research and market insights on sustainability risks impacting Vietnamese businesses",
-            "– Advised teams on blockchain-based transparency solutions, impact measurement, and strategic implementation",
-            "Achievement: Strengthened leadership, analytical communication, and coaching capabilities"
+            "Delivered ESG/SDG research and market insights on sustainability risks impacting Vietnamese businesses",
+            "Advised teams on blockchain-based transparency solutions, impact measurement, and strategic implementation"
         ],
+        "achievement": "Strengthened leadership, analytical communication, and coaching capabilities",
+        "projects": None,
         "tech": ["Blockchain"],
         "domain": ["ESG Analysis", "UN SDG", "Sustainability", "Stakeholder Communication"]
     }
