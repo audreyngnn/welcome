@@ -27,46 +27,49 @@ SKILLS = [
 
 EXPERIENCE = [
     {
-        "role": "Research Assistant",
+        "role": "Student Research Assistant",
         "company": "Macquarie University",
-        "period": "Jan 2025 – Jun 2025",
+        "period": "Jan 2025 – Oct 2025",
         "location": "Sydney, NSW",
         "highlights": [
-            "Analyzed user engagement metrics for virtual try-on technology in e-commerce environments",
-            "Conducted data-driven research on digital customer experience, measuring conversion rates and user interaction with AR/VR features",
+            "Analyzed how customers perceive virtual try-on technology and its impact on digital shopping behavior",
+            "– Analyzed engagement and conversion patterns in AR/VR virtual try-on environments to understand customer perceptions",
+            "– Researched VTO model advancements and realism to assess their impact on digital retail experiences",
+            "– Summarized findings into clear reports supporting product optimization and research direction"
         ],
-        "tech": ["Machine Learning"],
-        "domain": ["E-commerce Analytics", "Academic Research"]
+        "tech": ["Machine Learning", "AR/VR Analytics"],
+        "domain": ["E-commerce Analytics", "Academic Research", "Virtual Try-On Technology"]
     },
-
     {
         "role": "Data Analyst",
         "company": "Ptc. Consulting",
         "period": "Jun 2023 – Dec 2024",
         "location": "Sydney, NSW",
         "highlights": [
-            "Accurate data collection on parking occupancy and turnover by conducting surveys across Sydney suburbs",
-            "Data analysis by working with collected parking metrics, creating actionable insights for urban planning initiatives",
-            "Achievement: Contributed to nine projects by delivering high-impact data records to city stakeholders",
+            "Delivered insights that informed nine urban planning and strategic infrastructure initiatives",
+            "– Collected and validated survey data, transforming raw datasets into clear, data-informed recommendations supporting project strategy and stakeholder alignment",
+            "– Analyzed behavioral trends to identify patterns in customer movement, peak demand, and infrastructure use",
+            "– Produced concise reports for councils and business partners to support their decision-making",
+            "Highlighted Projects: Wollongong City Council Parking Strategy, Harbourside Car Park, Bonnyrigg Plaza, Deepwater Plaza, Landmark Building (St Leonards)"
         ],
-        "tech": ["Advanced Excel"],
-        "domain": ["Urban Planning", "Parking Analytics", "Stakeholder Communication"],
+        "tech": ["Advanced Excel", "Survey Data Analysis"],
+        "domain": ["Urban Planning", "Infrastructure Analytics", "Stakeholder Communication"]
     },
     {
         "role": "Financial Analyst",
         "company": "Crawford and Company",
-        "period": "Jan 2023 – Jul 2023",
+        "period": "Jan 2023 – Jun 2023",
         "location": "Sydney, NSW",
         "highlights": [
-            "Analyzed 134 financial loss claim assessments, including business interruption and stock loss policies",
-            "Communicated with insured parties, insurers, and third-party representatives to gather case-specific data",
-            "Validated claim information through detailed review of financial documentation and supporting evidence",
-            "Presented data-driven financial analyses to support accurate claim assessment and settlement determination",
-            "Generated reports detailing assessment processes, financial adjustments, and data-based recommendations for final settlement amounts",
-            "Achievement: Generated $56,780 in company revenue by managing high-volume claims efficiently",
+            "Assessed 134 financial loss claims by analyzing operational patterns and key business performance drivers",
+            "– Collaborated cross-functionally with insurers, clients, and stakeholders to gather case-specific data and ensure accuracy of inputs",
+            "– Developed insight-driven analyses supporting fair and evidence-based business interruption settlements",
+            "– Produced detailed reports calculating methodology, financial modeling outcomes, and final recommendations",
+            "Achievement: Generated ~$56,780 in company revenue",
+            "Highlighted Projects: McDonald's (2022 flood interruption), Sydney Opera House (COVID-19 interruption)"
         ],
-        "tech": ["Excel"],
-        "domain": ["Financial Analysis", "Forensic Accounting", "Claim Investigation", "Stakeholder Communication"],
+        "tech": ["Excel", "Financial Modeling"],
+        "domain": ["Financial Analysis", "Forensic Accounting", "Claim Investigation", "Stakeholder Communication"]
     },
     {
         "role": "Operations Manager",
@@ -74,12 +77,13 @@ EXPERIENCE = [
         "period": "Mar 2020 – Dec 2021",
         "location": "Sydney, NSW",
         "highlights": [
-            "Collaborated with departments to analyze and restructure organizational workflows and procedures",
-            "Collaborated with stakeholders to allocate personnel and resolve cross-team conflicts",
-            "Identified training needs through performance data analysis",
-            "Achievement: Doubled application volume and employee turnover reduced by 83% (vs. previous year)",
+            "Led operational strategy and performance optimization across multiple concurrent projects",
+            "– Analyzed workflow, performance metrics, and operational bottlenecks to drive process optimization",
+            "– Coordinated cross-functional teams to ensure alignment, resource allocation, and timely execution of project deliverables",
+            "– Leveraged data insights to identify training needs and support capability-building initiatives",
+            "Achievement: Doubled application volume and reduced employee turnover by 83%"
         ],
-        "tech": ["Excel"],
+        "tech": ["Excel", "Process Analytics"],
         "domain": ["Process Optimization", "HR Analysis", "Project Management", "Stakeholder Communication"]
     },
     {
@@ -88,13 +92,13 @@ EXPERIENCE = [
         "period": "Jun 2022",
         "location": "Vietnam",
         "highlights": [
-            "Presented research-driven analysis of sustainability challenges facing Vietnamese businesses, applying ESG (UN SDG) frameworks to assess environmental and social risks",
-            "Mentored finalist team on developing blockchain solution for textile supply chain sustainability, evaluating ESG (UN SDG) materiality, impact measurement, and stakeholder transparency requirements",
-            "Achievement: Strengthened leadership, communication, and coaching capabilities",
+            "– Delivered ESG/SDG research and market insights on sustainability risks impacting Vietnamese businesses",
+            "– Advised teams on blockchain-based transparency solutions, impact measurement, and strategic implementation",
+            "Achievement: Strengthened leadership, analytical communication, and coaching capabilities"
         ],
         "tech": ["Blockchain"],
         "domain": ["ESG Analysis", "UN SDG", "Sustainability", "Stakeholder Communication"]
-    },
+    }
 ]
 
 PROJECTS = [
@@ -117,41 +121,68 @@ PROJECTS = [
         "year": "2024"
     },
     {
-        "name": "Global Earthquake Risk Analysis",
-        "description": "This analysis transforms earthquake data into actionable emergency management strategies.",
-        "tech": ["Tableau", "Dashboard"],
-        "domain": ["Risk Analytics"],
-        "link": "https://github.com/audreyngnn/Tableau-Project-1",
-        "image": "images/earthquake_cover.jpg",
-        "year": "2024"
-    },
-    {
         "name": "Australian Road Death Analysis (2010-2024)",
         "description": "Analyzed Australian road fatalities (2010-2024) using three R visualizations to identify temporal patterns, high-risk demographics, and policy effectiveness toward the 2030 target.",
-        "tech": ["R", "Dashboard"],
-        "domain": ["Risk Analytics"],
+        "tech": ["R", "Data Visualization", "Data Analysis"],
+        "domain": ["Risk Analytics", "Public Policy"],
         "link": "https://github.com/audreyngnn/R-Project-1",
         "image": "images/road_cover.jpg",
         "year": "2024"
     },
     {
+        "name": "Global Earthquake Risk Analysis",
+        "description": "This analysis transforms earthquake data into actionable emergency management strategies. Here's what the data tells us and what we should do about it.",
+        "tech": ["Tableau", "Data Visualization", "Risk Analysis"],
+        "domain": ["Risk Analytics", "Emergency Management"],
+        "link": "https://github.com/audreyngnn/Tableau-Project-1",
+        "image": "images/earthquake_cover.jpg",
+        "year": "2024"
+    },
+    {
         "name": "Predictive Analytics: AirBnb Pricing in Melbourne",
         "description": "This project focuses on building a machine learning model to predict the price of Airbnb listings in Melbourne based on property and host features. The model was trained on historical data and applied to unseen listings, with the aim of achieving high predictive accuracy.",
-        "tech": ["Python", "Machine Learning", "Feature Engineering"],
-        "domain": ["Predictive Analytics", "Price Analytics"],
+        "tech": ["Python", "Machine Learning", "Feature Engineering", "Predictive Modeling"],
+        "domain": ["Predictive Analytics", "Price Analytics", "Real Estate"],
         "link": "https://github.com/audreyngnn/Python-Project-1",
         "image": "images/airbnb.jpg",
         "year": "2024"
     },
     {
+        "name": "Furniture E-Commerce Sales Analytics",
+        "description": "This project demonstrates advanced SQL Server capabilities through comprehensive analysis of furniture e-commerce sales data, focusing on business intelligence insights critical for data-driven decision-making in the furniture retail industry.",
+        "tech": ["SQL Server", "Data Analysis", "Business Intelligence"],
+        "domain": ["E-Commerce Analytics", "Sales Analytics", "Retail"],
+        "link": "https://github.com/audreyngnn/SQL-Project-1",
+        "image": "images/sql_furniture.jpg",
+        "year": "2024"
+    },
+    {
+        "name": "Global Internet Usage Data - E-Commerce Opportunity",
+        "description": "This project applies SQL-based data cleaning and analysis to global internet penetration data to uncover e-commerce market opportunities. The goal is to transform raw World Bank/ITU data into a reliable, business-ready dataset for strategic decision-making.",
+        "tech": ["SQL", "Data Cleaning", "Market Analysis"],
+        "domain": ["E-Commerce Analytics", "Market Research", "Data Quality"],
+        "link": "https://github.com/audreyngnn/SQL-Project-2",
+        "image": "images/sql_internet.jpg",
+        "year": "2024"
+    },
+    {
+        "name": "ProApp SQL Database Project",
+        "description": "This project demonstrates how I applied SQL and analytics thinking to solve real business problems for ProApp, a startup revolutionizing the service industry by connecting customers seeking personal services, tradespeople offering their skills, and suppliers providing materials and equipment.",
+        "tech": ["SQL", "Database Design", "Business Analytics"],
+        "domain": ["Database Management", "Startup Analytics", "Service Industry"],
+        "link": "https://github.com/audreyngnn/SQL-Project-3",
+        "image": "images/sql_proapp.jpg",
+        "year": "2024"
+    },
+    {
         "name": "DRAGONWAGON – Engage in Asia",
         "description": "Designed a mobile app to connect Vietnamese farmers with local buyers, promoting responsible supply chains. Targeted SDGs 1 (No Poverty) and 12 (Responsible Consumption and Production). Top 5 Finalist at University of Sydney.",
-        "tech": ["Blockchain"],
-        "domain": ["ESG Analysis", "UN SDG", "E-Commerce Analysis"],
+        "tech": ["Blockchain", "Mobile App Design", "UX"],
+        "domain": ["ESG Analysis", "UN SDG", "Supply Chain"],
         "link": "https://www.youtube.com/watch?v=your-video-id",
         "image": "images/dragonwagon_cover.jpg",
         "year": "2022"
-    },
+    }
 ]
 
 EDUCATION = [
