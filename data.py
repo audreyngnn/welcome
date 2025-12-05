@@ -122,6 +122,15 @@ PROJECTS = [
         "year": "2025"
     },
     {
+        "name": "HR Operations Process Optimization",
+        "description": "Process optimization framework documenting agile-style information flow, feedback loops, task delegation, and reporting workflows. Resulted in doubled applications and 83% reduction in turnover at UAVS-NSW.",
+        "tech": ["Process Mapping", "Diagrams.net", "Excel", "Organizational Design"],
+        "domain": ["HR Analytics", "Operations"],
+        "link": "https://github.com/yourusername/hr-process-optimization",
+        "image": "images/hr_process_cover.jpg",
+        "year": "2021"
+    },
+    {
         "name": "University Student Retention Analytics",
         "description": "Comprehensive dashboard for Macquarie University analyzing student progression, retention rates, and transfer patterns across programs with advanced DAX measures.",
         "tech": ["Power BI", "DAX", "Data Modelling", "Data Cleaning"],
