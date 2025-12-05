@@ -108,7 +108,41 @@ EXPERIENCE = [
         "projects": None,
         "tech": ["Blockchain"],
         "domain": ["ESG Analysis", "UN SDG", "Sustainability", "Stakeholder Communication"]
+    },
+
+{
+        "role": "Marketing & Social Media Team",
+        "company": "PTE MAGIC",
+        "period": "Jun 2021 – Aug 2021",
+        "location": "Sydney, NSW, Australia",
+        "description": "Managed content performance and audience engagement across social media channels to optimize marketing effectiveness",
+        "highlights": [
+            "Managed content performance across company social media channels (Facebook page and group), monitoring engagement metrics to maintain optimal performance levels",
+            "Analyzed audience engagement data to inform monthly content strategies, including posting frequency optimization and campaign effectiveness",
+            "Collaborated with sales team to gather and analyze customer feedback data, translating insights into actionable content adjustments"
+        ],
+        "achievement": None,
+        "projects": None,
+        "tech": ["Social Media Analytics", "Content Strategy", "Excel"],
+        "domain": ["Marketing Analytics", "Social Media Management"]
+    },
+    {
+        "role": "Brand Management Team",
+        "company": "Timex Group",
+        "period": "Jan 2018 – Jun 2018",
+        "location": "Toronto, ON, Canada",
+        "description": "Supported digital catalog management and marketing campaign analysis using performance data and engagement metrics",
+        "highlights": [
+            "Managed digital product catalog updates and website content optimization based on performance data and user engagement metrics",
+            "Monitored product launch performance and analyzed customer interaction data to inform content strategy",
+            "Supported marketing campaign analysis by tracking key performance indicators and conversion metrics"
+        ],
+        "achievement": None,
+        "projects": None,
+        "tech": ["Web Analytics", "Performance Tracking", "Content Management"],
+        "domain": ["Marketing Analytics", "E-commerce", "Brand Management"]
     }
+
 ]
 
 PROJECTS = [
